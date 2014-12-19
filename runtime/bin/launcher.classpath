@@ -1,0 +1,5 @@
+main is com.ycc.startup.Startup from server
+
+[server]
+load ${web.home}/lib/*.jar
+load ${web.home}/deploy/*.jar

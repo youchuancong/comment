@@ -1,0 +1,42 @@
+
+#    需要设置如下环境变量：
+#
+#      JAVA_HOME           - JDK的安装路径
+#
+#-------------------------------------------------------------------
+
+# 确定安装了java，并设置了JAVA_HOME环境变量.
+noJavaHome=false
+if [ -z "$JAVA_HOME" ] ; then
+    noJavaHome=true
+fi
+
+if [ ! -e "$JAVA_HOME/bin/java" ] ; then
+    noJavaHome=true
+fi
+if $noJavaHome ; then
+    echo "Error: JAVA_HOME environment variable is not set."
+    exit 1
+fi
+
+# 用该脚本的位置推断WEB_HOME的路径.
+CURR_DIR=`pwd`
+cd `dirname "$0"`/..
+WEB_HOME=`pwd`
+APP_CONSOLE_LOG=$WEB_HOME/log/startup.log
+if [ -z "$WEB_HOME" ] ; then
+    echo
+    echo "error, environment variable“WEB_HOME”not found "
+    echo
+    exit 1
+fi
+
+CLASSPATH="$WEB_HOME/lib/plexus-classworlds-2.5.2.jar"
+MAIN_CLASS="org.codehaus.classworlds.Launcher"
+DEFAULT_OPTS="-server -Xms256m -Xmx1024m -Xss160k "
+DEFAULT_OPTS="$DEFAULT_OPTS   -Dweb.home=\"$WEB_HOME\" "
+DEFAULT_OPTS="$DEFAULT_OPTS -Dclassworlds.conf=\"$WEB_HOME/bin/launcher.classpath\""
+CMD="exec \"$JAVA_HOME/bin/java\" $JVM_OPTIONS  $DEFAULT_OPTS -classpath \"$CLASSPATH\"  $MAIN_CLASS $APP_ARGS $@ >> $APP_CONSOLE_LOG 2>&1 &"
+eval $CMD
+
+tail -f $APP_CONSOLE_LOG

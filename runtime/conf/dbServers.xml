@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+	<!--公共数据库配置-->		
+	<dbServer name="abstractServer" abstractive="true">
+		<!-- mysql port -->
+		<property name="port">3306</property>
+		<!-- mysql user -->
+		<property name="user">root</property>
+		<property name="password">viyeon123</property>
+		<property name="database">usermaindb</property>
+		<property name="maxPoolSize">100</property>
+		<property name="minPoolSize">10</property>
+		<property name="initialPoolSize">10</property>
+		<property name="maxIdleTime">20</property>
+		<property name="acquireIncrement">2</property>
+		<property name="driverClass">com.mysql.jdbc.Driver</property>
+	</dbServer>
+	
+	<!--真实数据库配置-->
+	<dbServer name="master" real="true" parent="abstractServer">
+		<property name="ipAddress">192.168.17.154</property>
+	</dbServer>
+	<dbServer name="slaver" real="true" parent="abstractServer">
+		<!-- mysql ip -->
+		<property name="ipAddress">192.168.17.142</property>
+	</dbServer>
+	
+	
+	<!--数据库集群配置，代码中均是使用集群访问数据库-->
+	<dbServer name="mainwrite" virtual="true">
+		<!-- Separated by commas,such as: server1,server2,server1 -->
+		<property name="poolNames">master</property>
+	</dbServer>
+	<dbServer name="mainread" virtual="true">
+		<!-- Separated by commas,such as: server1,server2,server1 -->
+		<property name="poolNames">slaver</property>
+	</dbServer>	
+</root>
