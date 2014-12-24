@@ -1,6 +1,7 @@
 package com.ycc.business.ektappserver.interceptor;
 
 import java.io.IOException;
+import java.util.Map;
 
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -10,8 +11,9 @@ import org.apache.commons.io.IOUtils;
 import com.jfinal.aop.Interceptor;
 import com.jfinal.core.ActionInvocation;
 import com.jfinal.log.Logger;
-import com.ycc.business.ektappserver.def.AppServerDef;
+import com.ycc.core.jfinal.common.CommonInterceptor;
 import com.ycc.core.util.def.CommonDef;
+import com.ycc.core.util.json.JsonUtil;
 
 /**
  * appServer拦截器
@@ -27,7 +29,10 @@ public class AppServerInterceptor implements Interceptor {
 			HttpServletRequest request = ai.getController().getRequest();
 			ServletInputStream ins = request.getInputStream();
 			String str = IOUtils.toString(ins,CommonDef.CHARSET);
-			request.setAttribute(AppServerDef.AGENT_PARAM, str);
+			Map map = JsonUtil.getMapFromJsonString(str);
+			CommonInterceptor.PARAM.set(map);
+			CommonInterceptor.REQUEST_STR.set(str);
+			//request.setAttribute(AppServerDef.AGENT_PARAM, str);
 		} catch (IOException e) {
 			log.error("initParam error", e);
 		}
@@ -44,7 +49,6 @@ public class AppServerInterceptor implements Interceptor {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		long end = System.currentTimeMillis();
 	}
 
 }

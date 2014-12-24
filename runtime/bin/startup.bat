@@ -40,6 +40,10 @@ echo %SERVER_HOME%
 
 set DEFAULT_OPTS=-server -Xms256m -Xmx1024m -Xss128k
 set DEFAULT_OPTS=%DEFAULT_OPTS% -XX:+HeapDumpOnOutOfMemoryError -XX:+AggressiveOpts -XX:+UseParallelGC -XX:+UseBiasedLocking -XX:NewSize=64m
+set DEFAULT_OPTS=%DEFAULT_OPTS% -Dcom.sun.management.jmxremote=true
+set DEFAULT_OPTS=%DEFAULT_OPTS% -Dcom.sun.management.jmxremote.port=9090
+set DEFAULT_OPTS=%DEFAULT_OPTS% -Dcom.sun.management.jmxremote.ssl=false
+set DEFAULT_OPTS=%DEFAULT_OPTS% -Dcom.sun.management.jmxremote.authenticate=false
 set DEFAULT_OPTS=%DEFAULT_OPTS% "-Dweb.home=%SERVER_HOME%"
 set DEFAULT_OPTS=%DEFAULT_OPTS% "-Dclassworlds.conf=%SERVER_HOME%\bin\launcher.classpath"
 

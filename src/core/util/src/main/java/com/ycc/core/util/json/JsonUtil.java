@@ -19,7 +19,9 @@ public class JsonUtil {
 		jf.registerJsonValueProcessor(java.util.Date.class,
 				new DateJsonValueProcessor("yyyy-MM-dd HH:mm:ss"));
 	}
-
+	public static JSONObject mapToJObject(Map map){
+		return  JSONObject.fromObject(map, jf);
+	}
 	/**
 	 * 从json字符串转换成java对象
 	 * 

@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Timer;
 
 import org.dom4j.Document;
 import org.dom4j.Element;
@@ -28,12 +29,14 @@ public class DbFactory {
 	private static Map<String, DbServer> pools = null;
 	private static Map<String,List<String>> virture = null;
 	private static Map<String,Integer> curse = null;
+	private static Timer timer = new Timer(true);
 	private static String mysqJdbcUrl = "jdbc:mysql://%s:%d/%s?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull";
 	private static void init(){
 		servers = new LinkedList<DbServer>();
 		pools = new HashMap<String,DbServer>();
 		virture = new HashMap<String,List<String>>();
 		curse = new HashMap<String,Integer>();
+		timer.schedule(new DbCheckTimer(), 2*60*1000, 10*60*1000);//每十分钟检查一次数据库状态
 	}
 	private static void parseReal(Document doc){
 		List<Element> real = Dom4jTool.getNodes(doc,
@@ -176,8 +179,7 @@ public class DbFactory {
 	public static List<DbServer> getDbServer() {
 		return servers;
 	}
-
-	public static DbPro getDb(String key) {
+	private static DbPro getRDb(String key){
 		List<String>  ds =virture.get(key);
 		Integer cus = curse.get(key);
 		cus++;
@@ -185,9 +187,30 @@ public class DbFactory {
 			cus=0;
 		}
 		curse.put(key, cus);
-		return Db.use(ds.get(cus%ds.size()));
+		String dbname = ds.get(cus%ds.size());
+		DbServer  db = pools.get(dbname);
+		if(db.active){
+			return Db.use(dbname);
+		}else{
+			return null;
+		}
 	}
-
+	/**
+	 * 取活跃的数据库
+	 * @param key
+	 * @return
+	 */
+	public static DbPro getDb(String key) {
+		List<String>  ds =virture.get(key);
+		DbPro db = getRDb(key);
+		int retry=0;
+		int size = ds.size();
+		while(db==null&&retry<size){
+			retry++;
+			db=getRDb(key);
+		}
+		return db;
+	}
 	public static void main(String[] args) {
 		loadDbServerConf("D:\\src\\commponet\\runtime\\conf\\dbServers.xml");
 	}

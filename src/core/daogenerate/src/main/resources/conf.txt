@@ -1,0 +1,5 @@
+jdbcUrl = jdbc:mysql://127.0.0.1/usermaindb?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+user=root
+pwd=viyeon123
+table=userinfo
+package=com.ycc.business.ektappserver.module

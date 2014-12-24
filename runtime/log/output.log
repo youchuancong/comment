@@ -1,0 +1,6 @@
+
+2014-12-24 11:03:49
+[DEBUG]-[Thread: main]-[com.ycc.core.jfinal.ext.MyAutoBindRoutes.config()]: routes.add(/appServer, com.ycc.business.ektappserver.control.AppServerController)
+
+2014-12-24 11:03:49
+[DEBUG]-[Thread: main]-[com.ycc.core.jfinal.ext.MyAutoBindRoutes.config()]: routes.add(/debug, com.ycc.core.jfinal.common.DebugController)
