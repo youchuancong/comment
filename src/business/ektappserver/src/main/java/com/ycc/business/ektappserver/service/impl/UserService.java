@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-import org.springframework.stereotype.Service;
-
 import com.jfinal.plugin.activerecord.Record;
 import com.ycc.business.ektappserver.bean.ErrorResponse;
 import com.ycc.business.ektappserver.bean.SuccessResponse;
@@ -17,6 +15,7 @@ import com.ycc.business.ektappserver.module.Userinfo;
 import com.ycc.business.ektappserver.service.IUserService;
 import com.ycc.core.jfinal.db.DbFactory;
 import com.ycc.core.jfinal.db.DbUtil;
+import com.ycc.core.myspringioc.annotation.Service;
 import com.ycc.core.util.json.JsonUtil;
 import com.ycc.core.util.pool.ThreadPoolUtil;
 import com.ycc.core.util.validator.CollectionUtil;

@@ -11,6 +11,7 @@ import com.jfinal.kit.StrKit;
 import com.jfinal.log.Logger;
 import com.ycc.core.util.config.PathEnum;
 import com.ycc.core.util.config.SystemConfigUtil;
+import com.ycc.core.util.search.ClassSearch;
 
 public class MyAutoBindRoutes extends AutoBindRoutes {
 	private boolean autoScan = true;
@@ -22,7 +23,12 @@ public class MyAutoBindRoutes extends AutoBindRoutes {
 	@Override
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void config() {
-		List<Class<? extends Controller>> controllerClasses = MyClassSearcher
+		/*List<Class<? extends Controller>> controllerClasses = MyClassSearcher
+				.of(Controller.class)
+				.libDir(SystemConfigUtil.getPath(PathEnum.DEPLOY))
+				.includeAllJarsInLib(true)
+				.classpath(SystemConfigUtil.getPath(PathEnum.DEPLOY)).search();*/
+		List<Class> controllerClasses = ClassSearch
 				.of(Controller.class)
 				.libDir(SystemConfigUtil.getPath(PathEnum.DEPLOY))
 				.includeAllJarsInLib(true)

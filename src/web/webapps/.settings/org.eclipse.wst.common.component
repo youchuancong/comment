@@ -10,6 +10,9 @@
         <dependent-module archiveName="util-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/util/util">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="myspring-ioc-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/myspring-ioc/myspring-ioc">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="startup-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/startup/startup">
             <dependency-type>uses</dependency-type>
         </dependent-module>

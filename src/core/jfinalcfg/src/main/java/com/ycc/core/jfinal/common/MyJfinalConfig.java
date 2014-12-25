@@ -13,10 +13,10 @@ import com.jfinal.core.JFinal;
 import com.jfinal.log.Logger;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
-import com.jfinal.plugin.spring.SpringPlugin;
 import com.ycc.core.jfinal.db.DbFactory;
 import com.ycc.core.jfinal.db.DbServer;
 import com.ycc.core.jfinal.ext.MyAutoBindRoutes;
+import com.ycc.core.myspringioc.MySpringPlugin;
 import com.ycc.core.util.config.PathEnum;
 import com.ycc.core.util.config.SystemConfigUtil;
 import com.ycc.core.util.validator.CollectionUtil;
@@ -44,9 +44,10 @@ public class MyJfinalConfig extends JFinalConfig {
 	 * 配置插件
 	 */
 	public void configPlugin(Plugins me) {
-		me.add(new SpringPlugin("file:"+SystemConfigUtil.getPath(PathEnum.WEBAPPS)+File.separator+"WEB-INF"+File.separator+"applicationContext.xml"));
+		//me.add(new SpringPlugin("file:"+SystemConfigUtil.getPath(PathEnum.WEBAPPS)+File.separator+"WEB-INF"+File.separator+"applicationContext.xml"));
 		//me.add(new SpringPlugin(SystemConfigUtil.getPath(PathEnum.CONF)+File.separator+File.separator+"applicationContext.xml"));
 		//me.add(new SpringPlugin());
+		me.add(new MySpringPlugin());
 		DbFactory.loadDbServerConf(SystemConfigUtil.getPath(PathEnum.CONF)+File.separator+"dbServers.xml");
 		// 配置C3p0数据库连接池插件
 		List<DbServer>  servers = DbFactory.getDbServer();
@@ -66,7 +67,7 @@ public class MyJfinalConfig extends JFinalConfig {
 	 * 配置全局拦截器
 	 */
 	public void configInterceptor(Interceptors me) {
-		me.add(new CommonInterceptor());
+		me.add(new CommonInterceptorStack());
 	}
 	
 	/**

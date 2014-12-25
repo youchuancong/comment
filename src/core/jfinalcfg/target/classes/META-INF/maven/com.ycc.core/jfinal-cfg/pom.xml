@@ -12,6 +12,11 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.ycc.core</groupId>
+			<artifactId>myspring-ioc</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ycc.core</groupId>
 			<artifactId>util</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>

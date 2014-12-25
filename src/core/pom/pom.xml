@@ -52,7 +52,8 @@
 			<artifactId>jfinal-ext</artifactId>
 			<version>3.1.2</version>
 		</dependency>
-		<dependency>
+		<!-- spring jar -->
+		<!-- <dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
@@ -62,8 +63,8 @@
 					<artifactId>commons-logging</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
-		<dependency>
+		</dependency> 
+		 <dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${aspectj.version}</version>
@@ -72,8 +73,8 @@
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
 			<version>${aspectj.version}</version>
-		</dependency>
-		<dependency>
+		</dependency> -->
+		<!-- <dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 			<version>${spring.version}</version>
@@ -126,7 +127,7 @@
 					<artifactId>commons-logging</artifactId>
 				</exclusion>
 			</exclusions>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>net.sf.json-lib</groupId>
 			<artifactId>json-lib</artifactId>
