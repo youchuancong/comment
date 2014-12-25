@@ -21,6 +21,7 @@
 		<module>../../src/core/util</module>
 		<module>../../src/core/startup</module>
 		<module>../../src/core/jfinalcfg</module>
+		<module>../../src/core/myspring-ioc</module>
 		<module>../../src/business/ektappserver</module>
 	</modules>
 	<build>
