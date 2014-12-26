@@ -4,3 +4,14 @@ maxThreads=500
 minThreads=10
 acceptors=8
 WEB_URL=http://chat.9onlylove.com/mgr
+
+# 微信服务器回调所用的 token
+token=youycc
+
+# 测试用的账号
+appId=wx0cf33bc3b83d5983
+appSecret=f510551a09ea14e768c3bf5441b01d7d
+
+#是否对消息进行加密，是否对消息进行加密，对应于微信平台的消息加解密方式，false支持明文模式及兼容模式，true支持安全模式及兼容模式
+#encryptMessage=true
+#encodingAesKey=yourEncodingAesKey

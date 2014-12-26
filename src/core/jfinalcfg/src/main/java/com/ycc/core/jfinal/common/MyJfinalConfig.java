@@ -13,6 +13,7 @@ import com.jfinal.core.JFinal;
 import com.jfinal.log.Logger;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
+import com.jfinal.plugin.ehcache.EhCachePlugin;
 import com.ycc.core.jfinal.db.DbFactory;
 import com.ycc.core.jfinal.db.DbServer;
 import com.ycc.core.jfinal.ext.MyAutoBindRoutes;
@@ -61,6 +62,9 @@ public class MyJfinalConfig extends JFinalConfig {
 			ActiveRecordPlugin arp = new ActiveRecordPlugin(db.getName(),cp);
 			me.add(arp);
 		}
+		
+		EhCachePlugin ecp = new EhCachePlugin(SystemConfigUtil.getPath(PathEnum.CONF)+File.separator+"ehcache.xml");
+		me.add(ecp);
 	}
 	
 	/**

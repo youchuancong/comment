@@ -7,6 +7,9 @@
         <dependent-module archiveName="ektappserver-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ektappserver/ektappserver">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="weixin-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/weixin/weixin">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="util-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/util/util">
             <dependency-type>uses</dependency-type>
         </dependent-module>

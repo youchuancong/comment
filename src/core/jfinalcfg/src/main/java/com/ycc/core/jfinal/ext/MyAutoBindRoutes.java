@@ -23,13 +23,8 @@ public class MyAutoBindRoutes extends AutoBindRoutes {
 	@Override
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void config() {
-		/*List<Class<? extends Controller>> controllerClasses = MyClassSearcher
-				.of(Controller.class)
-				.libDir(SystemConfigUtil.getPath(PathEnum.DEPLOY))
-				.includeAllJarsInLib(true)
-				.classpath(SystemConfigUtil.getPath(PathEnum.DEPLOY)).search();*/
 		List<Class> controllerClasses = ClassSearch
-				.of(Controller.class)
+				.anno(ControllerBind.class)
 				.libDir(SystemConfigUtil.getPath(PathEnum.DEPLOY))
 				.includeAllJarsInLib(true)
 				.classpath(SystemConfigUtil.getPath(PathEnum.DEPLOY)).search();

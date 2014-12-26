@@ -23,6 +23,7 @@
 		<module>../../src/core/jfinalcfg</module>
 		<module>../../src/core/myspring-ioc</module>
 		<module>../../src/business/ektappserver</module>
+		<module>../../src/business/weixin</module>
 	</modules>
 	<build>
 		<plugins>
