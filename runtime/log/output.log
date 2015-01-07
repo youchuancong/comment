@@ -1,6 +1,40 @@
 
-2014-12-24 11:03:49
+2015-01-06 11:56:04
 [DEBUG]-[Thread: main]-[com.ycc.core.jfinal.ext.MyAutoBindRoutes.config()]: routes.add(/appServer, com.ycc.business.ektappserver.control.AppServerController)
 
-2014-12-24 11:03:49
-[DEBUG]-[Thread: main]-[com.ycc.core.jfinal.ext.MyAutoBindRoutes.config()]: routes.add(/debug, com.ycc.core.jfinal.common.DebugController)
+2015-01-06 11:56:04
+[DEBUG]-[Thread: main]-[com.ycc.core.jfinal.ext.MyAutoBindRoutes.config()]: routes.add(/api, com.jfinal.weixin.demo.WeixinApiController)
+
+2015-01-06 11:56:04
+[DEBUG]-[Thread: main]-[com.ycc.core.jfinal.ext.MyAutoBindRoutes.config()]: routes.add(/msg, com.jfinal.weixin.demo.WeixinMsgController)
+
+2015-01-06 11:56:04
+[DEBUG]-[Thread: main]-[com.ycc.core.myspringioc.MyApplicatocContext.<init>()]: begin scan ,scanBase:
+
+2015-01-06 11:56:04
+[DEBUG]-[Thread: main]-[com.ycc.core.myspringioc.MyApplicatocContext.<init>()]: end scan ,scanBase:
+
+2015-01-06 11:59:05
+[DEBUG]-[Thread: qtp625533017-59]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/login; use:10270ms
+ param:{"password":"123456","username":"15071438685"}
+ response:{"port":"6379","zipurl":"http://chat.9onlylove.com/mgr/website/1/web.zip","pwd":"123456","userGroup":[{"filecrc":null,"createtime":"2014-08-05 10:08:55","id":965977,"taskstate":0,"state":0,"mark":"1","groupname":"°¡¹þ¹þ","cityname":"Îäºº","uuid":"ead81a2d-0609-4dcb-b9d0-0cb735ed1829","photo":""}],"userInfo":{"handphone":"15071438685","sex":0,"recode":"4590","nickname":"ÁÎ´Ï´Ï","islimit":0,"password":"e10adc3949ba59abbe56e057f20f883e","photo":"m03","filecrc":"4044170123","id":1,"createtime":"2014-03-27 05:12:31","balance":1333,"password$TCC":"test","username":"15071438685","isanswer":null,"level":0,"sitestate":0,"logintime":"2014-12-11 16:27:54","address":"y","email":"51@hd.com","token":"8d02e570-5804-4c1a-a283-9c9cb5a8b5a6","thisIndex":0,"preIndex":0,"username$TCC":"test","loginstate":0},"redisIP":"115.29.227.147","msg":"success","zipcrc32":"1C8F1671"}
+
+
+2015-01-06 14:02:51
+[ERROR]-[Thread: DbCheckTimer]-[com.ycc.core.jfinal.db.DbCheckTimer.check()]: database connection error
+java.net.NoRouteToHostException: No route to host: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at java.net.Socket.connect(Socket.java:528)
+	at java.net.Socket.<init>(Socket.java:425)
+	at java.net.Socket.<init>(Socket.java:208)
+	at com.ycc.core.jfinal.db.DbCheckTimer.check(DbCheckTimer.java:17)
+	at com.ycc.core.jfinal.db.DbCheckTimer.run(DbCheckTimer.java:44)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)

@@ -1,0 +1,90 @@
+1、登录
+=================
+	"URL=http://192.168.0.160:8084/appServer/login",
+    "RecContentType=application/json",    //指定相应头的Content-Type，这里是JSON
+    "EncType=application/json",               //指定请求头的Content-Type，这里也是JSON
+    "Mode=HTML",
+    RAW_BODY_START,                      //请求BODY开始的标识符
+    "{\"password\":\"123456\",\"username\":\"15071438685\"}",  //BODY的内容
+    46,                                    //上面一行BODY内容的长度
+    RAW_BODY_END,  
+=================
+
+2、登录扩展
+=================
+	"URL=http://192.168.0.160:8084/appServer/loginEx",
+    "RecContentType=application/json",    //指定相应头的Content-Type，这里是JSON
+    "EncType=application/json",               //指定请求头的Content-Type，这里也是JSON
+    "Mode=HTML",
+    RAW_BODY_START,                      //请求BODY开始的标识符
+    "{\"uid\":\"1\"}",  //BODY的内容
+    11,                                    //上面一行BODY内容的长度
+    RAW_BODY_END,  
+=================
+
+3、获取客户列表
+=================
+	"URL=http://192.168.0.160:8084/appServer/getAllCusLst",
+    "RecContentType=application/json",    //指定相应头的Content-Type，这里是JSON
+    "EncType=application/json",               //指定请求头的Content-Type，这里也是JSON
+    "Mode=HTML",
+    RAW_BODY_START,                      //请求BODY开始的标识符
+    "{\"userid\":\"1\",\"type\":\"0\",\"customerIndex\":\"0\",\"groupid\":\"965977\"}",  //BODY的内容
+    64,                                    //上面一行BODY内容的长度
+    RAW_BODY_END,  
+=================
+4、备注客户信息
+=================
+	"URL=http://192.168.0.160:8084/appServer/saveCusInfo",
+    "RecContentType=application/json",    //指定相应头的Content-Type，这里是JSON
+    "EncType=application/json",               //指定请求头的Content-Type，这里也是JSON
+    "Mode=HTML",
+    RAW_BODY_START,                      //请求BODY开始的标识符
+    "{\"housetype\":\"4\",\"sex\":\"0\",\"area\":\"-1\",\"intention\":\"3\",\"customerid\":\"\",\"remark\":\"犬瘟热\",\"age\":\"1\",\"userid\":\"1\",\"groupid\":\"965977\",\"type\":\"2\",\"customername\":\"test\",\"mobileno\":\"13125098383\"}",  //BODY的内容
+    189,                                    //上面一行BODY内容的长度
+    RAW_BODY_END,  
+=================
+5、退出登录
+=================
+	"URL=http://192.168.0.160:8084/appServer/logout",
+    "RecContentType=application/json",    //指定相应头的Content-Type，这里是JSON
+    "EncType=application/json",               //指定请求头的Content-Type，这里也是JSON
+    "Mode=HTML",
+    RAW_BODY_START,                      //请求BODY开始的标识符
+    "{\"token\":\"token\",\"userid\":\"1\"}",//BODY的内容
+    30,                                    //上面一行BODY内容的长度
+    RAW_BODY_END,  
+=================
+6、获取推广链
+=================
+	"URL=http://192.168.0.160:8084/appServer/getPopularize",
+    "RecContentType=application/json",    //指定相应头的Content-Type，这里是JSON
+    "EncType=application/json",               //指定请求头的Content-Type，这里也是JSON
+    "Mode=HTML",
+    RAW_BODY_START,                      //请求BODY开始的标识符
+    "{\"groupid\":\"965977\"}",  //BODY的内容
+    20,                                    //上面一行BODY内容的长度
+    RAW_BODY_END,  
+=================
+7、标记打招呼
+=================
+	"URL=http://192.168.0.160:8084/appServer/sayHelloFlag",
+    "RecContentType=application/json",    //指定相应头的Content-Type，这里是JSON
+    "EncType=application/json",               //指定请求头的Content-Type，这里也是JSON
+    "Mode=HTML",
+    RAW_BODY_START,                      //请求BODY开始的标识符
+    "{\"token\":\"token\",\"customerid\":\"1\",\"userinfoid\":\"1\"}",  //BODY的内容
+    51,                                    //上面一行BODY内容的长度
+    RAW_BODY_END, 
+=================
+6、标记推广链
+=================
+	"URL=http://192.168.0.160:8084/appServer/popularizeFlag",
+    "RecContentType=application/json",    //指定相应头的Content-Type，这里是JSON
+    "EncType=application/json",               //指定请求头的Content-Type，这里也是JSON
+    "Mode=HTML",
+    RAW_BODY_START,                      //请求BODY开始的标识符
+    "{\"token\":\"token\",\"customerid\":\"1\",\"userinfoid\":\"1\",\"popularizeid\":\"3\"}",  //BODY的内容
+    70,                                    //上面一行BODY内容的长度
+    RAW_BODY_END, 
+=================

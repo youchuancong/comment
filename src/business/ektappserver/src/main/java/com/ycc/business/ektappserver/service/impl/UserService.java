@@ -100,7 +100,14 @@ public class UserService implements IUserService {
 	}
 
 	private void update(final int userId) {
-		ThreadPoolUtil.execute(new Runnable() {
+		Record user = new Record();
+		user.set("id", userId);
+		user.set("loginstate", 2);
+		user.set("sitestate",0);
+		user.set("logintime", new Date());
+		DbFactory.getDb(AppServerDef.MAIN_WRITE).update("userinfo",user);
+		//多线程异步方式在阿里云环境性能更低（数据库磁盘io性能较低）
+		/*ThreadPoolUtil.execute(new Runnable() {
 			public void run() {
 				Thread.currentThread().setName("update login status");
 				Record user = new Record();
@@ -111,7 +118,7 @@ public class UserService implements IUserService {
 				DbFactory.getDb(AppServerDef.MAIN_WRITE).update("userinfo",user);
 				Thread.currentThread().setName("free");
 			}
-		});
+		});*/
 	}
 
 	public Record findUserByUserName(String username) {
@@ -199,7 +206,7 @@ public class UserService implements IUserService {
 		int uid = MapUtil.getInt(param, "userid");
 		int gid = MapUtil.getInt(param, "groupid");
 		int type = MapUtil.getInt(param, "type");
-		int cid = MapUtil.getInt(param, "customerid");
+		long cid = MapUtil.getInt(param, "customerid");
 		String cname = MapUtil.getString(param, "customername", "");
 		String mobileno = MapUtil.getString(param, "mobileno", "");
 		String remark = MapUtil.getString(param, "remark", "");
@@ -213,9 +220,22 @@ public class UserService implements IUserService {
 			DbFactory.getDb(AppServerDef.MAIN_WRITE).update(sql, cname,mobileno,sex,new Date(),cid);
 		}else if(type==2){
 			String sql="insert into customerdistribution(state,customername,mobileno,sex,gettime,createtime,url,f_usergroup_id,f_userinfo_id) values(2,?,?,?,?,?,'',?,?)";
-			DbFactory.getDb(AppServerDef.MAIN_WRITE).update(sql, cname,mobileno,sex,new Date(),new Date(),gid,uid);
+			Record cus = new Record();
+			cus.set("state", 2);
+			cus.set("customername", cname);
+			cus.set("mobileno", mobileno);
+			cus.set("sex", sex);
+			cus.set("gettime", new Date());
+			cus.set("createtime", new Date());
+			cus.set("url", "");
+			cus.set("f_usergroup_id", gid);
+			cus.set("f_userinfo_id", uid);
+			DbFactory.getDb(AppServerDef.MAIN_WRITE).save("customerdistribution", cus);
+			cid=cus.getLong("id");//采用jdbc3.0规范，Statement.RETURN_GENERATED_KEYS
+			//select last_insert_id()与数据库连接关联，若两次语句取到的不是同一个连接，则存在问题
+			/*DbFactory.getDb(AppServerDef.MAIN_WRITE).update(sql, cname,mobileno,sex,new Date(),new Date(),gid,uid);
 			Number bi =  DbFactory.getDb(AppServerDef.MAIN_WRITE).queryNumber("select last_insert_id()");
-			cid=bi.intValue();
+			cid=bi.intValue();*/
 		}
 		String sql="insert into customerinfo(age,sex,intention,housetype,area,remark,type,f_customer_id,customername,mobileno) values(?,?,?,?,?,?,?,?,?,?)";
 		DbFactory.getDb(AppServerDef.MAIN_WRITE).update(sql, age,sex,intention,housetype,area,remark,type,cid,cname,mobileno);
@@ -267,7 +287,7 @@ public class UserService implements IUserService {
 	}
 
 	public String loginEx(int uid) {
-		Map<String,Object> res = new HashMap<String,Object>();
+		Map<String,Object> res = SuccessResponse.getSuccessMap();
 		Record ug = getUserGroup(uid);
 		if(ug==null){
 			return ErrorResponse.getErrMsg(ErrorCode.LOGIN_EX_ERROR);

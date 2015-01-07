@@ -12,11 +12,11 @@ import com.jfinal.config.Routes;
 import com.jfinal.core.JFinal;
 import com.jfinal.log.Logger;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
-import com.jfinal.plugin.c3p0.C3p0Plugin;
 import com.jfinal.plugin.ehcache.EhCachePlugin;
 import com.ycc.core.jfinal.db.DbFactory;
 import com.ycc.core.jfinal.db.DbServer;
 import com.ycc.core.jfinal.ext.MyAutoBindRoutes;
+import com.ycc.core.jfinal.ext.MyC3p0Plugin;
 import com.ycc.core.myspringioc.MySpringPlugin;
 import com.ycc.core.util.config.PathEnum;
 import com.ycc.core.util.config.SystemConfigUtil;
@@ -57,7 +57,7 @@ public class MyJfinalConfig extends JFinalConfig {
 			return;
 		}
 		for(DbServer db:servers){
-			C3p0Plugin cp = db.getC3p0Plugin();
+			MyC3p0Plugin cp = db.getC3p0Plugin();
 			me.add(cp);
 			ActiveRecordPlugin arp = new ActiveRecordPlugin(db.getName(),cp);
 			me.add(arp);

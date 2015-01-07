@@ -1,0 +1,35 @@
+Action()
+{
+	/*lr_start_transaction("test");
+	web_custom_request("web_custom_request",
+	"URL=http://192.168.0.160:1248/appServer/{url}",
+	"Method=POST",
+	"Resource=0",
+	"RecContentType=application/x-www-form-urlencoded",
+	"Referer=",
+	"Mode=HTTP",
+	"Body={data}",
+	LAST);
+	lr_end_transaction("test",LR_AUTO);
+	return 0;
+	web_reg_find("Text=success", 
+        LAST ); */
+
+	lr_start_transaction("test");
+	web_reg_find("Text=success", 
+        LAST );
+		web_custom_request("request",   //随便写个名字
+		"Method=POST",                         //请求的方法
+		"URL=http://192.168.0.160:8084/appServer/logout",
+		"RecContentType=application/json",    //指定相应头的Content-Type，这里是JSON
+		"EncType=application/json",               //指定请求头的Content-Type，这里也是JSON
+		"Mode=HTML",
+		RAW_BODY_START,                      //请求BODY开始的标识符
+		"{\"token\":\"token\",\"userid\":\"1\"}",//BODY的内容
+		30,                                    //上面一行BODY内容的长度
+		RAW_BODY_END,        //请求BODY结束的标识符
+		LAST);
+	lr_end_transaction("test",LR_AUTO);
+	return 0;
+
+}

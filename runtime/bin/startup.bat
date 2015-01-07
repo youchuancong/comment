@@ -1,5 +1,5 @@
 @rem ----------------------------------------------------------------------------
-@rem 启动Amoeba的脚本
+@rem 启动脚本
 @rem
 @rem 需要设置如下环境变量：
 @rem
@@ -39,11 +39,13 @@ echo %SERVER_HOME%
 
 
 set DEFAULT_OPTS=-server -Xms256m -Xmx1024m -Xss128k
-set DEFAULT_OPTS=%DEFAULT_OPTS% -XX:+HeapDumpOnOutOfMemoryError -XX:+AggressiveOpts -XX:+UseParallelGC -XX:+UseBiasedLocking -XX:NewSize=64m
+set DEFAULT_OPTS=%DEFAULT_OPTS% -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=%SERVER_HOME%\log -XX:ErrorFile=%SERVER_HOME%\log\java_error%p.log -XX:+AggressiveOpts -XX:+UseParallelGC -XX:+UseBiasedLocking -XX:NewSize=64m
 set DEFAULT_OPTS=%DEFAULT_OPTS% -Dcom.sun.management.jmxremote=true
 set DEFAULT_OPTS=%DEFAULT_OPTS% -Dcom.sun.management.jmxremote.port=9090
 set DEFAULT_OPTS=%DEFAULT_OPTS% -Dcom.sun.management.jmxremote.ssl=false
 set DEFAULT_OPTS=%DEFAULT_OPTS% -Dcom.sun.management.jmxremote.authenticate=false
+@rem 允许eclipse远程调试
+set DEFAULT_OPTS=%DEFAULT_OPTS% -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=9988
 set DEFAULT_OPTS=%DEFAULT_OPTS% "-Dweb.home=%SERVER_HOME%"
 set DEFAULT_OPTS=%DEFAULT_OPTS% "-Dclassworlds.conf=%SERVER_HOME%\bin\launcher.classpath"
 

@@ -19,12 +19,13 @@
 	
 	<!--真实数据库配置-->
 	<dbServer name="master" real="true" parent="abstractServer">
-		<property name="ipAddress">192.168.17.154</property>
+		<property name="ipAddress">10.160.67.132</property>
+		<!--<property name="ipAddress">192.168.17.154</property>-->
 	</dbServer>
 	<dbServer name="slaver" real="true" parent="abstractServer">
 		<!-- mysql ip  -->
-		<property name="ipAddress">192.168.17.142</property> 
-		<!--<property name="ipAddress">192.168.17.154</property> -->
+		<property name="ipAddress">10.160.67.120</property> 
+		<!--<property name="ipAddress">192.168.17.142</property> -->
 	</dbServer>
 	
 	

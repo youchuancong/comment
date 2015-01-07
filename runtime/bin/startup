@@ -33,11 +33,14 @@ fi
 
 CLASSPATH="$WEB_HOME/lib/plexus-classworlds-2.5.2.jar"
 MAIN_CLASS="org.codehaus.classworlds.Launcher"
-DEFAULT_OPTS="-server -Xms256m -Xmx1024m -Xss160k "
+DEFAULT_OPTS="-server -Xms256m -Xmx512m -Xss160k "
+DEFAULT_OPTS="$DEFAULT_OPTS -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=$WEB_HOME\log -XX:ErrorFile=$WEB_HOME\log\java_error%p.log -XX:+AggressiveOpts -XX:+UseParallelGC -XX:+UseBiasedLocking -XX:NewSize=64m "
 DEFAULT_OPTS="$DEFAULT_OPTS -Dcom.sun.management.jmxremote=true "
 DEFAULT_OPTS="$DEFAULT_OPTS -Dcom.sun.management.jmxremote.port=9090 "
 DEFAULT_OPTS="$DEFAULT_OPTS -Dcom.sun.management.jmxremote.ssl=false "
 DEFAULT_OPTS="$DEFAULT_OPTS -Dcom.sun.management.jmxremote.authenticate=false "
+#ÔÊÐíEclipseÔ¶³Ìµ÷ÊÔ
+DEFAULT_OPTS="$DEFAULT_OPTS -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=9988 "
 DEFAULT_OPTS="$DEFAULT_OPTS   -Dweb.home=\"$WEB_HOME\" "
 DEFAULT_OPTS="$DEFAULT_OPTS -Dclassworlds.conf=\"$WEB_HOME/bin/launcher.classpath\""
 CMD="exec \"$JAVA_HOME/bin/java\" $JVM_OPTIONS  $DEFAULT_OPTS -classpath \"$CLASSPATH\"  $MAIN_CLASS $APP_ARGS $@ >> $APP_CONSOLE_LOG 2>&1 &"

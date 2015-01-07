@@ -2,7 +2,7 @@ package com.ycc.core.jfinal.db;
 
 import lombok.Data;
 
-import com.jfinal.plugin.c3p0.C3p0Plugin;
+import com.ycc.core.jfinal.ext.MyC3p0Plugin;
 @Data
 public class DbServer   implements Cloneable{
 	String name;
@@ -30,8 +30,8 @@ public class DbServer   implements Cloneable{
         return super.clone();
     }
     //String jdbcUrl, String user, String password, String driverClass, Integer maxPoolSize, Integer minPoolSize, Integer initialPoolSize, Integer maxIdleTime, Integer acquireIncrement
-    public C3p0Plugin getC3p0Plugin(){
-    	C3p0Plugin c = new C3p0Plugin(this.jdbcUrl,this.user,this.password,this.driverClass,this.maxPoolSize,this.minPoolSize,this.initialPoolSize,this.maxIdleTime,this.acquireIncrement);
+    public MyC3p0Plugin getC3p0Plugin(){
+    	MyC3p0Plugin c = new MyC3p0Plugin(this.jdbcUrl,this.user,this.password,this.driverClass,this.maxPoolSize,this.minPoolSize,this.initialPoolSize,this.maxIdleTime,this.acquireIncrement);
     	return c;
     }
 }
