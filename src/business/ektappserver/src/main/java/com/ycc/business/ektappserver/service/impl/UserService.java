@@ -92,7 +92,7 @@ public class UserService implements IUserService {
 		}
 
 		getRedisInfo(res);
-		if (!getWebZipInfo(res, ug.getInt("id"))) {
+		if (ug==null||!getWebZipInfo(res, ug.getInt("id"))) {
 			return ErrorResponse.getErrMsg(ErrorCode.WEB_NOT_FOUND);
 		}
 		update(user.getInt("id"));

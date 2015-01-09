@@ -3,6 +3,8 @@ package com.ycc.core.jfinal.common;
 import java.io.File;
 import java.util.List;
 
+import com.alibaba.druid.filter.stat.StatFilter;
+import com.alibaba.druid.wall.WallFilter;
 import com.jfinal.config.Constants;
 import com.jfinal.config.Handlers;
 import com.jfinal.config.Interceptors;
@@ -12,11 +14,12 @@ import com.jfinal.config.Routes;
 import com.jfinal.core.JFinal;
 import com.jfinal.log.Logger;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
+import com.jfinal.plugin.druid.DruidPlugin;
+import com.jfinal.plugin.druid.DruidStatViewHandler;
 import com.jfinal.plugin.ehcache.EhCachePlugin;
 import com.ycc.core.jfinal.db.DbFactory;
 import com.ycc.core.jfinal.db.DbServer;
 import com.ycc.core.jfinal.ext.MyAutoBindRoutes;
-import com.ycc.core.jfinal.ext.MyC3p0Plugin;
 import com.ycc.core.myspringioc.MySpringPlugin;
 import com.ycc.core.util.config.PathEnum;
 import com.ycc.core.util.config.SystemConfigUtil;
@@ -24,6 +27,7 @@ import com.ycc.core.util.validator.CollectionUtil;
 
 public class MyJfinalConfig extends JFinalConfig {
 	private final static Logger LOG = Logger.getLogger(MyJfinalConfig.class);
+
 	/**
 	 * 配置常量
 	 */
@@ -32,58 +36,75 @@ public class MyJfinalConfig extends JFinalConfig {
 		loadPropertyFile(new File(SystemConfigUtil.getConFileName()));
 		me.setDevMode(getPropertyToBoolean("devMode", false));
 	}
-	
+
 	/**
 	 * 配置路由
 	 */
 	public void configRoute(Routes me) {
-		//me.add(new AutoBindRoutes().includeAllJarsInLib(true));
+		me.add("/", IndexController.class);
 		me.add(new MyAutoBindRoutes());
 	}
-	
+
 	/**
 	 * 配置插件
 	 */
 	public void configPlugin(Plugins me) {
-		//me.add(new SpringPlugin("file:"+SystemConfigUtil.getPath(PathEnum.WEBAPPS)+File.separator+"WEB-INF"+File.separator+"applicationContext.xml"));
-		//me.add(new SpringPlugin(SystemConfigUtil.getPath(PathEnum.CONF)+File.separator+File.separator+"applicationContext.xml"));
-		//me.add(new SpringPlugin());
+		// me.add(new
+		// SpringPlugin("file:"+SystemConfigUtil.getPath(PathEnum.WEBAPPS)+File.separator+"WEB-INF"+File.separator+"applicationContext.xml"));
+		// me.add(new
+		// SpringPlugin(SystemConfigUtil.getPath(PathEnum.CONF)+File.separator+File.separator+"applicationContext.xml"));
+		// me.add(new SpringPlugin());
 		me.add(new MySpringPlugin());
-		DbFactory.loadDbServerConf(SystemConfigUtil.getPath(PathEnum.CONF)+File.separator+"dbServers.xml");
+		DbFactory.loadDbServerConf(SystemConfigUtil.getPath(PathEnum.CONF)
+				+ File.separator + "dbServers.xml");
 		// 配置C3p0数据库连接池插件
-		List<DbServer>  servers = DbFactory.getDbServer();
-		if(CollectionUtil.isEmpty(servers)){
+		List<DbServer> servers = DbFactory.getDbServer();
+		if (CollectionUtil.isEmpty(servers)) {
 			LOG.error("db server conf is null");
 			return;
 		}
-		for(DbServer db:servers){
-			MyC3p0Plugin cp = db.getC3p0Plugin();
-			me.add(cp);
-			ActiveRecordPlugin arp = new ActiveRecordPlugin(db.getName(),cp);
+		for (DbServer db : servers) {
+
+			/*
+			 * MyC3p0Plugin cp = db.getC3p0Plugin(); me.add(cp);
+			 * ActiveRecordPlugin arp = new ActiveRecordPlugin(db.getName(),cp);
+			 * me.add(arp);
+			 */
+
+			DruidPlugin dp = db.getDruidPlugin();
+			StatFilter sf = new StatFilter();
+			sf.setLogSlowSql(true);
+			dp.addFilter(sf);
+			WallFilter wall = new WallFilter();
+			wall.setDbType("mysql");
+			dp.addFilter(wall);
+			me.add(dp);
+			ActiveRecordPlugin arp = new ActiveRecordPlugin(db.getName(), dp);
 			me.add(arp);
 		}
-		
-		EhCachePlugin ecp = new EhCachePlugin(SystemConfigUtil.getPath(PathEnum.CONF)+File.separator+"ehcache.xml");
+
+		EhCachePlugin ecp = new EhCachePlugin(
+				SystemConfigUtil.getPath(PathEnum.CONF) + File.separator
+						+ "ehcache.xml");
 		me.add(ecp);
 	}
-	
+
 	/**
 	 * 配置全局拦截器
 	 */
 	public void configInterceptor(Interceptors me) {
 		me.add(new CommonInterceptorStack());
 	}
-	
+
 	/**
 	 * 配置处理器
 	 */
 	public void configHandler(Handlers me) {
-		
 	}
-	
+
 	/**
-	 * 建议使用 JFinal 手册推荐的方式启动项目
-	 * 运行此 main 方法可以启动项目，此main方法可以放置在任意的Class类定义中，不一定要放于此
+	 * 建议使用 JFinal 手册推荐的方式启动项目 运行此 main
+	 * 方法可以启动项目，此main方法可以放置在任意的Class类定义中，不一定要放于此
 	 */
 	public static void main(String[] args) {
 		JFinal.start("src/main/webapp", 80, "/", 5);
