@@ -3,6 +3,7 @@ package com.ycc.core.jfinal.common;
 import java.io.File;
 import java.util.List;
 
+import com.alibaba.druid.filter.logging.Log4jFilter;
 import com.alibaba.druid.filter.stat.StatFilter;
 import com.alibaba.druid.wall.WallFilter;
 import com.jfinal.config.Constants;
@@ -15,7 +16,6 @@ import com.jfinal.core.JFinal;
 import com.jfinal.log.Logger;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.druid.DruidPlugin;
-import com.jfinal.plugin.druid.DruidStatViewHandler;
 import com.jfinal.plugin.ehcache.EhCachePlugin;
 import com.ycc.core.jfinal.db.DbFactory;
 import com.ycc.core.jfinal.db.DbServer;
@@ -77,7 +77,12 @@ public class MyJfinalConfig extends JFinalConfig {
 			dp.addFilter(sf);
 			WallFilter wall = new WallFilter();
 			wall.setDbType("mysql");
+			wall.setLogViolation(true);//对被认为是攻击的SQL进行LOG.error输出
+			wall.setThrowException(false);//对被认为是攻击的SQL不抛出异常
 			dp.addFilter(wall);
+			Log4jFilter log4j = new Log4jFilter();//执行的sql语句日志输出
+			log4j.setStatementExecutableSqlLogEnable(true);
+			dp.addFilter(log4j);
 			me.add(dp);
 			ActiveRecordPlugin arp = new ActiveRecordPlugin(db.getName(), dp);
 			me.add(arp);
