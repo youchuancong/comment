@@ -24,6 +24,7 @@ import com.ycc.core.myspringioc.MySpringPlugin;
 import com.ycc.core.util.config.PathEnum;
 import com.ycc.core.util.config.SystemConfigUtil;
 import com.ycc.core.util.validator.CollectionUtil;
+import  org.eclipse.jetty.server.nio.SelectChannelConnector;
 
 public class MyJfinalConfig extends JFinalConfig {
 	private final static Logger LOG = Logger.getLogger(MyJfinalConfig.class);
@@ -72,6 +73,12 @@ public class MyJfinalConfig extends JFinalConfig {
 			 */
 
 			DruidPlugin dp = db.getDruidPlugin();
+			
+			//开启连接泄漏自动检测，执行语句超过30秒未返回时，则认为存在泄漏，强行关闭连接
+			dp.setRemoveAbandoned(true);
+			dp.setRemoveAbandonedTimeoutMillis(30000);//执行时间设置为30s，超过30秒关闭连接（类似从c3p0的unreturnedConnectionTimeout）
+			dp.setLogAbandoned(true);
+			
 			StatFilter sf = new StatFilter();
 			sf.setLogSlowSql(true);
 			dp.addFilter(sf);

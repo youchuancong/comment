@@ -10,7 +10,7 @@ public class DebugStartUp {
 		
 		Startup s = new Startup();
 		s.loadConf(null);
-		s.init(80, "src/main/webapp");
+		s.init(8084, "src/main/webapp");
 		s.doStart();
 	}
 
