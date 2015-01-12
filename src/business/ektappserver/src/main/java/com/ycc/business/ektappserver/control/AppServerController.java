@@ -1,19 +1,23 @@
 package com.ycc.business.ektappserver.control;
 
+import java.util.List;
 import java.util.Map;
 
 import com.jfinal.aop.Before;
 import com.jfinal.core.Controller;
 import com.jfinal.ext.route.ControllerBind;
 import com.jfinal.log.Logger;
+import com.jfinal.plugin.activerecord.Record;
 import com.jfinal.plugin.spring.Inject;
 import com.ycc.business.ektappserver.bean.ErrorResponse;
 import com.ycc.business.ektappserver.bean.SuccessResponse;
+import com.ycc.business.ektappserver.def.AppServerDef;
 import com.ycc.business.ektappserver.def.ErrorCode;
 import com.ycc.business.ektappserver.interceptor.MainInterceptors;
 import com.ycc.business.ektappserver.service.IUserService;
 import com.ycc.core.jfinal.common.CommonInterceptor;
 import com.ycc.core.jfinal.common.JsonLogRender;
+import com.ycc.core.jfinal.db.DbFactory;
 import com.ycc.core.util.validator.MapUtil;
 @ControllerBind(controllerKey="/appServer")
 @Before(MainInterceptors.class)
