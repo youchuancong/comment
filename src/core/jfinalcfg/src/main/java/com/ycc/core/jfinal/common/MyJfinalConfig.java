@@ -20,6 +20,7 @@ import com.jfinal.plugin.ehcache.EhCachePlugin;
 import com.ycc.core.jfinal.db.DbFactory;
 import com.ycc.core.jfinal.db.DbServer;
 import com.ycc.core.jfinal.ext.MyAutoBindRoutes;
+import com.ycc.core.jfinal.ext.MyC3p0Plugin;
 import com.ycc.core.myspringioc.MySpringPlugin;
 import com.ycc.core.util.config.PathEnum;
 import com.ycc.core.util.config.SystemConfigUtil;
@@ -64,36 +65,37 @@ public class MyJfinalConfig extends JFinalConfig {
 			LOG.error("db server conf is null");
 			return;
 		}
+		String dbpool=getProperty("dbpool", "druid");
 		for (DbServer db : servers) {
-
-			/*
-			 * MyC3p0Plugin cp = db.getC3p0Plugin(); me.add(cp);
-			 * ActiveRecordPlugin arp = new ActiveRecordPlugin(db.getName(),cp);
-			 * me.add(arp);
-			 */
-
-			DruidPlugin dp = db.getDruidPlugin();
+			if("c3p0".equalsIgnoreCase(dbpool)){
+				  MyC3p0Plugin cp = db.getC3p0Plugin(); me.add(cp);
+				 ActiveRecordPlugin arp = new ActiveRecordPlugin(db.getName(),cp);
+				 me.add(arp);
+			}else{
+				DruidPlugin dp = db.getDruidPlugin();
+				//开启连接泄漏自动检测，执行语句超过30秒未返回时，则认为存在泄漏，强行关闭连接
+				dp.setTimeBetweenEvictionRunsMillis(30000);//检测时间不能大于执行超时时间
+				dp.setRemoveAbandoned(true);
+				dp.setRemoveAbandonedTimeoutMillis(30000);//执行时间设置为30s，超过30秒关闭连接（类似从c3p0的unreturnedConnectionTimeout）
+				dp.setLogAbandoned(true);
+				
+				StatFilter sf = new StatFilter();
+				sf.setLogSlowSql(true);
+				sf.setSlowSqlMillis(3000);//3s
+				dp.addFilter(sf);
+				WallFilter wall = new WallFilter();
+				wall.setDbType("mysql");
+				wall.setLogViolation(true);//对被认为是攻击的SQL进行LOG.error输出
+				wall.setThrowException(false);//对被认为是攻击的SQL不抛出异常
+				dp.addFilter(wall);
+				Log4jFilter log4j = new Log4jFilter();//执行的sql语句日志输出
+				log4j.setStatementExecutableSqlLogEnable(true);
+				dp.addFilter(log4j);
+				me.add(dp);
+				ActiveRecordPlugin arp = new ActiveRecordPlugin(db.getName(), dp);
+				me.add(arp);
+			}
 			
-			//开启连接泄漏自动检测，执行语句超过30秒未返回时，则认为存在泄漏，强行关闭连接
-			dp.setTimeBetweenEvictionRunsMillis(30000);//检测时间不能大于执行超时时间
-			dp.setRemoveAbandoned(true);
-			dp.setRemoveAbandonedTimeoutMillis(30000);//执行时间设置为30s，超过30秒关闭连接（类似从c3p0的unreturnedConnectionTimeout）
-			dp.setLogAbandoned(true);
-			
-			StatFilter sf = new StatFilter();
-			sf.setLogSlowSql(true);
-			dp.addFilter(sf);
-			WallFilter wall = new WallFilter();
-			wall.setDbType("mysql");
-			wall.setLogViolation(true);//对被认为是攻击的SQL进行LOG.error输出
-			wall.setThrowException(false);//对被认为是攻击的SQL不抛出异常
-			dp.addFilter(wall);
-			Log4jFilter log4j = new Log4jFilter();//执行的sql语句日志输出
-			log4j.setStatementExecutableSqlLogEnable(true);
-			dp.addFilter(log4j);
-			me.add(dp);
-			ActiveRecordPlugin arp = new ActiveRecordPlugin(db.getName(), dp);
-			me.add(arp);
 		}
 
 		EhCachePlugin ecp = new EhCachePlugin(

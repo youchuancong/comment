@@ -1,40 +1,201 @@
 
-2015-01-06 11:56:04
+2015-01-09 19:45:15
 [DEBUG]-[Thread: main]-[com.ycc.core.jfinal.ext.MyAutoBindRoutes.config()]: routes.add(/appServer, com.ycc.business.ektappserver.control.AppServerController)
 
-2015-01-06 11:56:04
+2015-01-09 19:45:15
 [DEBUG]-[Thread: main]-[com.ycc.core.jfinal.ext.MyAutoBindRoutes.config()]: routes.add(/api, com.jfinal.weixin.demo.WeixinApiController)
 
-2015-01-06 11:56:04
+2015-01-09 19:45:15
 [DEBUG]-[Thread: main]-[com.ycc.core.jfinal.ext.MyAutoBindRoutes.config()]: routes.add(/msg, com.jfinal.weixin.demo.WeixinMsgController)
 
-2015-01-06 11:56:04
+2015-01-09 19:45:15
 [DEBUG]-[Thread: main]-[com.ycc.core.myspringioc.MyApplicatocContext.<init>()]: begin scan ,scanBase:
 
-2015-01-06 11:56:04
+2015-01-09 19:45:15
 [DEBUG]-[Thread: main]-[com.ycc.core.myspringioc.MyApplicatocContext.<init>()]: end scan ,scanBase:
 
-2015-01-06 11:59:05
-[DEBUG]-[Thread: qtp625533017-59]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/login; use:10270ms
+2015-01-09 19:45:21
+[DEBUG]-[Thread: qtp909836224-46]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/login; use:239ms
  param:{"password":"123456","username":"15071438685"}
- response:{"port":"6379","zipurl":"http://chat.9onlylove.com/mgr/website/1/web.zip","pwd":"123456","userGroup":[{"filecrc":null,"createtime":"2014-08-05 10:08:55","id":965977,"taskstate":0,"state":0,"mark":"1","groupname":"啊哈哈","cityname":"武汉","uuid":"ead81a2d-0609-4dcb-b9d0-0cb735ed1829","photo":""}],"userInfo":{"handphone":"15071438685","sex":0,"recode":"4590","nickname":"廖聪聪","islimit":0,"password":"e10adc3949ba59abbe56e057f20f883e","photo":"m03","filecrc":"4044170123","id":1,"createtime":"2014-03-27 05:12:31","balance":1333,"password$TCC":"test","username":"15071438685","isanswer":null,"level":0,"sitestate":0,"logintime":"2014-12-11 16:27:54","address":"y","email":"51@hd.com","token":"8d02e570-5804-4c1a-a283-9c9cb5a8b5a6","thisIndex":0,"preIndex":0,"username$TCC":"test","loginstate":0},"redisIP":"115.29.227.147","msg":"success","zipcrc32":"1C8F1671"}
+ response:{"port":"6379","zipurl":"http://chat.9onlylove.com/mgr/website/1/web.zip","pwd":"123456","userGroup":[{"filecrc":null,"createtime":"2014-08-05 10:08:55","id":965977,"taskstate":0,"state":0,"mark":"1","groupname":"啊哈哈","cityname":"武汉","uuid":"ead81a2d-0609-4dcb-b9d0-0cb735ed1829","photo":""}],"userInfo":{"handphone":"15071438685","sex":0,"recode":"4590","nickname":"廖聪c","islimit":0,"password":"e10adc3949ba59abbe56e057f20f883e","photo":"m15","filecrc":"4044170123","id":1,"createtime":"2014-03-27 05:12:31","balance":1333,"password$TCC":"test","username":"15071438685","isanswer":null,"level":0,"sitestate":0,"logintime":"2015-01-09 18:06:58","address":"y","email":"51@hd.com","token":"fb67cf1f-8c37-40b0-826a-de27a16604a0","thisIndex":0,"preIndex":0,"username$TCC":"test","loginstate":2},"redisIP":"115.29.227.147","msg":"success","zipcrc32":"1C8F1671"}
 
 
-2015-01-06 14:02:51
-[ERROR]-[Thread: DbCheckTimer]-[com.ycc.core.jfinal.db.DbCheckTimer.check()]: database connection error
-java.net.NoRouteToHostException: No route to host: connect
-	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
-	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
-	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
-	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
-	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
-	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
-	at java.net.Socket.connect(Socket.java:579)
-	at java.net.Socket.connect(Socket.java:528)
-	at java.net.Socket.<init>(Socket.java:425)
-	at java.net.Socket.<init>(Socket.java:208)
-	at com.ycc.core.jfinal.db.DbCheckTimer.check(DbCheckTimer.java:17)
-	at com.ycc.core.jfinal.db.DbCheckTimer.run(DbCheckTimer.java:44)
-	at java.util.TimerThread.mainLoop(Timer.java:555)
-	at java.util.TimerThread.run(Timer.java:505)
+2015-01-09 19:45:21
+[DEBUG]-[Thread: qtp909836224-52]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/loginEx; use:40ms
+ param:{"uid":"1"}
+ response:{"groupMsgModal":[{"id":1,"content":"{cusname}{sex}你好，我们的楼盘{prjname}比较符合您的需求。请点击链接在线看房 {url} 您的专属顾问{username}。","createtime":"2014-10-16 11:27:40","usergroupID":965977,"state":0,"type":1},{"id":2,"content":"感谢您关注我们{prjname}项目，你可以点击 {url} 查看我们项目更多信息","createtime":"2014-10-20 16:54:35","usergroupID":965977,"state":0,"type":2},{"id":25,"content":"{cusname}{sex}您好，我是刚刚给你打电话的{nickname}","createtime":"2014-12-03 09:57:56","usergroupID":965977,"state":0,"type":3}],"groupProject":[{"createTime":"2014-10-16 11:22:51","scale":"0","mobileNO":"15071438685","street":"1","state":0,"password":"d8578edf8458ce06fbc5bb76a58c5ca4","city":"1","industrySec":1,"id":1,"usergroupID":965977,"username":"15071438685","area":"1","address":"慧谷时空","province":"1","industry":1,"projectName":"测试1"}],"msg":"success","tempUserGroup":[{"id":269939,"userinfoID":1,"usergroupID":965977,"isanswer":0,"state":0,"role":0}]}
+
+
+2015-01-09 19:45:22
+[DEBUG]-[Thread: qtp909836224-50]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/getAllCusLst; use:23ms
+ param:{"userid":"1","type":"0","customerIndex":"0","groupid":"965977"}
+ response:{"totle":9,"msg":"success","rows":[{"createtime":"2014-12-23 16:08:24","sex":-1,"customerid":49603,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"ycc","mobileno":"13125098381"},{"createtime":"2014-12-23 16:14:48","sex":-1,"customerid":49604,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"lwb","mobileno":"15872398304"},{"createtime":"2014-12-23 16:36:30","sex":-1,"customerid":49605,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"cc","mobileno":"13125098381"},{"createtime":"2015-01-06 10:00:24","sex":0,"customerid":49612,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"qwwss","mobileno":"13125098382"},{"createtime":"2015-01-06 10:03:40","sex":0,"customerid":49613,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"qwwss","mobileno":"13125098382"},{"createtime":"2015-01-06 15:44:51","sex":0,"customerid":49614,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"test","mobileno":"13125098383"},{"createtime":"2015-01-06 16:48:30","sex":0,"customerid":49615,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"test","mobileno":"13125098383"},{"createtime":"2015-01-06 16:50:23","sex":0,"customerid":49616,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"test","mobileno":"13125098383"},{"createtime":"2015-01-06 16:56:57","sex":0,"customerid":49617,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"test","mobileno":"13125098383"}]}
+
+
+2015-01-09 19:45:34
+[DEBUG]-[Thread: qtp909836224-50]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/login; use:10ms
+ param:{"password":"12345678","username":"18709564089"}
+ response:{"port":"6379","zipurl":"http://chat.9onlylove.com/mgr/website/20/web.zip","pwd":"123456","userGroup":[{"filecrc":null,"createtime":"2014-11-11 02:15:52","id":966438,"taskstate":0,"state":0,"mark":"1","groupname":"爱尚网","cityname":"武汉","uuid":"a131012b-2f41-49de-b903-4f78ddccc2fb","photo":null}],"userInfo":{"handphone":"18709564089","sex":0,"recode":"0000","nickname":"卡卡","islimit":0,"password":"25d55ad283aa400af464c76d713c07ad","photo":"m41","filecrc":null,"id":648,"createtime":"2014-11-11 04:06:59","balance":0,"password$TCC":"12345678","username":"18709564089","isanswer":null,"level":0,"sitestate":0,"logintime":"2015-01-09 18:12:32","address":null,"email":null,"token":"1ab09d5f-efc5-47f7-8e02-4dec1f79d5cc","thisIndex":0,"preIndex":0,"username$TCC":"卡卡","loginstate":2},"redisIP":"115.29.227.147","msg":"success","zipcrc32":null}
+
+
+2015-01-09 19:45:34
+[DEBUG]-[Thread: qtp909836224-46]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/loginEx; use:10ms
+ param:{"uid":"648"}
+ response:{"groupMsgModal":[{"id":11,"content":"并不是所有人都有与生俱来极佳的时尚品味和混搭能力，也并不是所有人都有时间每天在服饰搭配上用尽心思，其实选对一件套装就是最简单、最快速并且适合上班下班任何场合的穿衣技巧，今天，VOGUE就为你揭秘时尚达人们是如何将套装穿出个性，穿出气场！英国90后选秀歌手Diana Vickers在伦敦出席活动时身穿灰白格纹裙装，袖口和裙摆处的镂空细节格外别致。黑色半高领内搭，复古优雅；银色金属光泽手包，青春亮丽。大小不规则的灰白细格纹是非常适合上班族的套装面料，既简约低调，又精致干练。 ","createtime":"2014-11-11 04:38:35","usergroupID":966438,"state":0,"type":1},{"id":12,"content":"正在通话中，并不是所有人都有与生俱来极佳的时尚品味和混搭能力，也并不是所有人都有时间每天在服饰搭配上用尽心思，其实选对一件套装就是最简单、最快速并且适合上班下班任何场合的穿衣技巧，今天，VOGUE就为你揭秘时尚达人们是如何将套装穿出个性，穿出气场！英国90后选秀歌手Diana Vickers在伦敦出席活动时身穿灰白格纹裙装，袖口和裙摆处的镂空细节格外别致。黑色半高领内搭，复古优雅；银色金属光泽手包，青春亮丽。大小不规则的灰白细格纹是非常适合上班族的套装面料，既简约低调，又精致干练。 ","createtime":"2014-11-11 04:38:35","usergroupID":966438,"state":0,"type":2},{"id":28,"content":"结婚vkdfgk","createtime":"2014-12-09 10:18:37","usergroupID":966438,"state":0,"type":3}],"groupProject":[{"createTime":"2014-11-11 02:15:52","scale":"20-50","mobileNO":"15520664023","street":"珞瑜路","state":0,"password":"e10adc3949ba59abbe56e057f20f883e","city":"武汉","industrySec":1,"id":20,"usergroupID":966438,"username":"12345678","area":"洪山","address":"慧谷时空","province":"湖北","industry":1,"projectName":"光谷新城"}],"msg":"success","tempUserGroup":[{"id":270735,"userinfoID":648,"usergroupID":966438,"isanswer":0,"state":0,"role":1}]}
+
+
+2015-01-09 19:45:34
+[DEBUG]-[Thread: qtp909836224-53]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/getAllCusLst; use:24ms
+ param:{"userid":"648","type":"0","customerIndex":"0","groupid":"966438"}
+ response:{"totle":16,"msg":"success","rows":[{"createtime":"2014-11-14 02:54:46","sex":-1,"customerid":25842,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳芳","mobileno":"13125123722"},{"createtime":"2014-11-18 09:43:09","sex":-1,"customerid":29594,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:09","sex":-1,"customerid":29595,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:13","sex":-1,"customerid":29596,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:15","sex":-1,"customerid":29597,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:16","sex":-1,"customerid":29598,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:27","sex":-1,"customerid":29599,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:27","sex":-1,"customerid":29600,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-19 21:50:02","sex":-1,"customerid":32031,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":"13125123722"},{"createtime":"2014-11-19 22:15:41","sex":-1,"customerid":32103,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":"13125123722"},{"createtime":"2014-11-19 22:16:24","sex":-1,"customerid":32104,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"姗姗","mobileno":"18686860406"},{"createtime":"2014-11-19 22:16:59","sex":-1,"customerid":32105,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"13720367673","mobileno":"13720367673"},{"createtime":"2014-11-19 22:17:14","sex":-1,"customerid":32106,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"15527648891","mobileno":"15527648891"},{"createtime":"2014-11-19 22:17:42","sex":-1,"customerid":32107,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"你好","mobileno":""},{"createtime":"2014-11-19 22:18:05","sex":-1,"customerid":32113,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"你OK","mobileno":""},{"createtime":"2014-11-19 22:18:06","sex":-1,"customerid":32114,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"你OK","mobileno":""}]}
+
+
+2015-01-09 19:48:27
+[DEBUG]-[Thread: qtp909836224-49]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/login; use:11ms
+ param:{"password":"12345678","username":"18709564089"}
+ response:{"port":"6379","zipurl":"http://chat.9onlylove.com/mgr/website/20/web.zip","pwd":"123456","userGroup":[{"filecrc":null,"createtime":"2014-11-11 02:15:52","id":966438,"taskstate":0,"state":0,"mark":"1","groupname":"爱尚网","cityname":"武汉","uuid":"a131012b-2f41-49de-b903-4f78ddccc2fb","photo":null}],"userInfo":{"handphone":"18709564089","sex":0,"recode":"0000","nickname":"卡卡","islimit":0,"password":"25d55ad283aa400af464c76d713c07ad","photo":"m41","filecrc":null,"id":648,"createtime":"2014-11-11 04:06:59","balance":0,"password$TCC":"12345678","username":"18709564089","isanswer":null,"level":0,"sitestate":0,"logintime":"2015-01-09 19:45:34","address":null,"email":null,"token":"a5bf378f-8101-466f-824d-6e6cc5b929b2","thisIndex":0,"preIndex":0,"username$TCC":"卡卡","loginstate":2},"redisIP":"115.29.227.147","msg":"success","zipcrc32":null}
+
+
+2015-01-09 19:48:27
+[DEBUG]-[Thread: qtp909836224-49]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/loginEx; use:10ms
+ param:{"uid":"648"}
+ response:{"groupMsgModal":[{"id":11,"content":"并不是所有人都有与生俱来极佳的时尚品味和混搭能力，也并不是所有人都有时间每天在服饰搭配上用尽心思，其实选对一件套装就是最简单、最快速并且适合上班下班任何场合的穿衣技巧，今天，VOGUE就为你揭秘时尚达人们是如何将套装穿出个性，穿出气场！英国90后选秀歌手Diana Vickers在伦敦出席活动时身穿灰白格纹裙装，袖口和裙摆处的镂空细节格外别致。黑色半高领内搭，复古优雅；银色金属光泽手包，青春亮丽。大小不规则的灰白细格纹是非常适合上班族的套装面料，既简约低调，又精致干练。 ","createtime":"2014-11-11 04:38:35","usergroupID":966438,"state":0,"type":1},{"id":12,"content":"正在通话中，并不是所有人都有与生俱来极佳的时尚品味和混搭能力，也并不是所有人都有时间每天在服饰搭配上用尽心思，其实选对一件套装就是最简单、最快速并且适合上班下班任何场合的穿衣技巧，今天，VOGUE就为你揭秘时尚达人们是如何将套装穿出个性，穿出气场！英国90后选秀歌手Diana Vickers在伦敦出席活动时身穿灰白格纹裙装，袖口和裙摆处的镂空细节格外别致。黑色半高领内搭，复古优雅；银色金属光泽手包，青春亮丽。大小不规则的灰白细格纹是非常适合上班族的套装面料，既简约低调，又精致干练。 ","createtime":"2014-11-11 04:38:35","usergroupID":966438,"state":0,"type":2},{"id":28,"content":"结婚vkdfgk","createtime":"2014-12-09 10:18:37","usergroupID":966438,"state":0,"type":3}],"groupProject":[{"createTime":"2014-11-11 02:15:52","scale":"20-50","mobileNO":"15520664023","street":"珞瑜路","state":0,"password":"e10adc3949ba59abbe56e057f20f883e","city":"武汉","industrySec":1,"id":20,"usergroupID":966438,"username":"12345678","area":"洪山","address":"慧谷时空","province":"湖北","industry":1,"projectName":"光谷新城"}],"msg":"success","tempUserGroup":[{"id":270735,"userinfoID":648,"usergroupID":966438,"isanswer":0,"state":0,"role":1}]}
+
+
+2015-01-09 19:48:27
+[DEBUG]-[Thread: qtp909836224-46]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/getAllCusLst; use:24ms
+ param:{"userid":"648","type":"0","customerIndex":"0","groupid":"966438"}
+ response:{"totle":16,"msg":"success","rows":[{"createtime":"2014-11-14 02:54:46","sex":-1,"customerid":25842,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳芳","mobileno":"13125123722"},{"createtime":"2014-11-18 09:43:09","sex":-1,"customerid":29594,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:09","sex":-1,"customerid":29595,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:13","sex":-1,"customerid":29596,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:15","sex":-1,"customerid":29597,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:16","sex":-1,"customerid":29598,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:27","sex":-1,"customerid":29599,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:27","sex":-1,"customerid":29600,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-19 21:50:02","sex":-1,"customerid":32031,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":"13125123722"},{"createtime":"2014-11-19 22:15:41","sex":-1,"customerid":32103,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":"13125123722"},{"createtime":"2014-11-19 22:16:24","sex":-1,"customerid":32104,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"姗姗","mobileno":"18686860406"},{"createtime":"2014-11-19 22:16:59","sex":-1,"customerid":32105,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"13720367673","mobileno":"13720367673"},{"createtime":"2014-11-19 22:17:14","sex":-1,"customerid":32106,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"15527648891","mobileno":"15527648891"},{"createtime":"2014-11-19 22:17:42","sex":-1,"customerid":32107,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"你好","mobileno":""},{"createtime":"2014-11-19 22:18:05","sex":-1,"customerid":32113,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"你OK","mobileno":""},{"createtime":"2014-11-19 22:18:06","sex":-1,"customerid":32114,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"你OK","mobileno":""}]}
+
+
+2015-01-09 19:48:30
+[DEBUG]-[Thread: qtp909836224-47]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/getAllCusLst; use:4ms
+ param:{"userid":"648","type":"1","customerIndex":"0","groupid":"966438"}
+ response:{"totle":1,"msg":"success","rows":[{"createtime":"2014-11-14 15:44:35","sex":0,"customerid":25821,"popularize":0,"sayhello":0,"url":"www.ekt.so/e/?p=29860","customername":"测试聊天","mobileno":"11111111111"}]}
+
+
+2015-01-09 19:48:43
+[DEBUG]-[Thread: qtp909836224-51]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/getAllCusLst; use:4ms
+ param:{"userid":"648","type":"1","customerIndex":"0","groupid":"966438"}
+ response:{"totle":1,"msg":"success","rows":[{"createtime":"2014-11-14 15:44:35","sex":0,"customerid":25821,"popularize":0,"sayhello":0,"url":"www.ekt.so/e/?p=29860","customername":"测试聊天","mobileno":"11111111111"}]}
+
+
+2015-01-09 19:48:46
+[DEBUG]-[Thread: qtp909836224-49]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/getPopularize; use:5ms
+ param:{"groupid":"966438"}
+ response:{"totle":2,"msg":"success","rows":[{"createtime":"2014-12-09 11:02:44","content":"","id":77,"title":"http://192.168.0.","descpt":"http://192.168.0.160:1248","usergroupId":966438,"link":"http://192.168.0.1http","state":0,"type":1,"imgurl":"http://192.168.0.160:1248/userimage/1418094088886.png"},{"createtime":"2014-12-09 16:01:02","content":"","id":114,"title":"http://192.168.0.160:1248/","descpt":"会痛的石头 2014-12-09 10:45:28\n这个是有问题的吧\n10:50:48\n会痛的石头 2014-12-09 10:50:48\n你验证了没？","usergroupId":966438,"link":"http://192.168.0.160:1248/","state":0,"type":2,"imgurl":"http://192.168.0.160:1248/userimage/1418112173436.png"}]}
+
+
+2015-01-09 19:50:06
+[DEBUG]-[Thread: qtp909836224-49]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/getAllCusLst; use:5ms
+ param:{"userid":"648","type":"1","customerIndex":"0","groupid":"966438"}
+ response:{"totle":1,"msg":"success","rows":[{"createtime":"2014-11-14 15:44:35","sex":0,"customerid":25821,"popularize":0,"sayhello":0,"url":"www.ekt.so/e/?p=29860","customername":"测试聊天","mobileno":"11111111111"}]}
+
+
+2015-01-09 19:53:43
+[DEBUG]-[Thread: qtp909836224-55]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/login; use:11ms
+ param:{"password":"12345678","username":"18709564089"}
+ response:{"port":"6379","zipurl":"http://chat.9onlylove.com/mgr/website/20/web.zip","pwd":"123456","userGroup":[{"filecrc":null,"createtime":"2014-11-11 02:15:52","id":966438,"taskstate":0,"state":0,"mark":"1","groupname":"爱尚网","cityname":"武汉","uuid":"a131012b-2f41-49de-b903-4f78ddccc2fb","photo":null}],"userInfo":{"handphone":"18709564089","sex":0,"recode":"0000","nickname":"卡卡","islimit":0,"password":"25d55ad283aa400af464c76d713c07ad","photo":"m41","filecrc":null,"id":648,"createtime":"2014-11-11 04:06:59","balance":0,"password$TCC":"12345678","username":"18709564089","isanswer":null,"level":0,"sitestate":0,"logintime":"2015-01-09 19:48:27","address":null,"email":null,"token":"980adf65-519d-4058-9706-16be5058370d","thisIndex":0,"preIndex":0,"username$TCC":"卡卡","loginstate":2},"redisIP":"115.29.227.147","msg":"success","zipcrc32":null}
+
+
+2015-01-09 19:53:43
+[DEBUG]-[Thread: qtp909836224-55]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/loginEx; use:9ms
+ param:{"uid":"648"}
+ response:{"groupMsgModal":[{"id":11,"content":"并不是所有人都有与生俱来极佳的时尚品味和混搭能力，也并不是所有人都有时间每天在服饰搭配上用尽心思，其实选对一件套装就是最简单、最快速并且适合上班下班任何场合的穿衣技巧，今天，VOGUE就为你揭秘时尚达人们是如何将套装穿出个性，穿出气场！英国90后选秀歌手Diana Vickers在伦敦出席活动时身穿灰白格纹裙装，袖口和裙摆处的镂空细节格外别致。黑色半高领内搭，复古优雅；银色金属光泽手包，青春亮丽。大小不规则的灰白细格纹是非常适合上班族的套装面料，既简约低调，又精致干练。 ","createtime":"2014-11-11 04:38:35","usergroupID":966438,"state":0,"type":1},{"id":12,"content":"正在通话中，并不是所有人都有与生俱来极佳的时尚品味和混搭能力，也并不是所有人都有时间每天在服饰搭配上用尽心思，其实选对一件套装就是最简单、最快速并且适合上班下班任何场合的穿衣技巧，今天，VOGUE就为你揭秘时尚达人们是如何将套装穿出个性，穿出气场！英国90后选秀歌手Diana Vickers在伦敦出席活动时身穿灰白格纹裙装，袖口和裙摆处的镂空细节格外别致。黑色半高领内搭，复古优雅；银色金属光泽手包，青春亮丽。大小不规则的灰白细格纹是非常适合上班族的套装面料，既简约低调，又精致干练。 ","createtime":"2014-11-11 04:38:35","usergroupID":966438,"state":0,"type":2},{"id":28,"content":"结婚vkdfgk","createtime":"2014-12-09 10:18:37","usergroupID":966438,"state":0,"type":3}],"groupProject":[{"createTime":"2014-11-11 02:15:52","scale":"20-50","mobileNO":"15520664023","street":"珞瑜路","state":0,"password":"e10adc3949ba59abbe56e057f20f883e","city":"武汉","industrySec":1,"id":20,"usergroupID":966438,"username":"12345678","area":"洪山","address":"慧谷时空","province":"湖北","industry":1,"projectName":"光谷新城"}],"msg":"success","tempUserGroup":[{"id":270735,"userinfoID":648,"usergroupID":966438,"isanswer":0,"state":0,"role":1}]}
+
+
+2015-01-09 19:53:43
+[DEBUG]-[Thread: qtp909836224-56]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/getAllCusLst; use:27ms
+ param:{"userid":"648","type":"0","customerIndex":"0","groupid":"966438"}
+ response:{"totle":16,"msg":"success","rows":[{"createtime":"2014-11-14 02:54:46","sex":-1,"customerid":25842,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳芳","mobileno":"13125123722"},{"createtime":"2014-11-18 09:43:09","sex":-1,"customerid":29594,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:09","sex":-1,"customerid":29595,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:13","sex":-1,"customerid":29596,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:15","sex":-1,"customerid":29597,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:16","sex":-1,"customerid":29598,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:27","sex":-1,"customerid":29599,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:27","sex":-1,"customerid":29600,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-19 21:50:02","sex":-1,"customerid":32031,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":"13125123722"},{"createtime":"2014-11-19 22:15:41","sex":-1,"customerid":32103,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":"13125123722"},{"createtime":"2014-11-19 22:16:24","sex":-1,"customerid":32104,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"姗姗","mobileno":"18686860406"},{"createtime":"2014-11-19 22:16:59","sex":-1,"customerid":32105,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"13720367673","mobileno":"13720367673"},{"createtime":"2014-11-19 22:17:14","sex":-1,"customerid":32106,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"15527648891","mobileno":"15527648891"},{"createtime":"2014-11-19 22:17:42","sex":-1,"customerid":32107,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"你好","mobileno":""},{"createtime":"2014-11-19 22:18:05","sex":-1,"customerid":32113,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"你OK","mobileno":""},{"createtime":"2014-11-19 22:18:06","sex":-1,"customerid":32114,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"你OK","mobileno":""}]}
+
+
+2015-01-09 19:54:59
+[DEBUG]-[Thread: qtp909836224-58]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/login; use:10ms
+ param:{"password":"12345678","username":"18709564089"}
+ response:{"port":"6379","zipurl":"http://chat.9onlylove.com/mgr/website/20/web.zip","pwd":"123456","userGroup":[{"filecrc":null,"createtime":"2014-11-11 02:15:52","id":966438,"taskstate":0,"state":0,"mark":"1","groupname":"爱尚网","cityname":"武汉","uuid":"a131012b-2f41-49de-b903-4f78ddccc2fb","photo":null}],"userInfo":{"handphone":"18709564089","sex":0,"recode":"0000","nickname":"卡卡","islimit":0,"password":"25d55ad283aa400af464c76d713c07ad","photo":"m41","filecrc":null,"id":648,"createtime":"2014-11-11 04:06:59","balance":0,"password$TCC":"12345678","username":"18709564089","isanswer":null,"level":0,"sitestate":0,"logintime":"2015-01-09 19:53:43","address":null,"email":null,"token":"54bbbe41-94b5-4dff-92a0-f69cbc314e17","thisIndex":0,"preIndex":0,"username$TCC":"卡卡","loginstate":2},"redisIP":"115.29.227.147","msg":"success","zipcrc32":null}
+
+
+2015-01-09 19:54:59
+[DEBUG]-[Thread: qtp909836224-56]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/getAllCusLst; use:23ms
+ param:{"userid":"648","type":"0","customerIndex":"0","groupid":"966438"}
+ response:{"totle":16,"msg":"success","rows":[{"createtime":"2014-11-14 02:54:46","sex":-1,"customerid":25842,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳芳","mobileno":"13125123722"},{"createtime":"2014-11-18 09:43:09","sex":-1,"customerid":29594,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:09","sex":-1,"customerid":29595,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:13","sex":-1,"customerid":29596,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:15","sex":-1,"customerid":29597,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:16","sex":-1,"customerid":29598,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:27","sex":-1,"customerid":29599,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:27","sex":-1,"customerid":29600,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-19 21:50:02","sex":-1,"customerid":32031,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":"13125123722"},{"createtime":"2014-11-19 22:15:41","sex":-1,"customerid":32103,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":"13125123722"},{"createtime":"2014-11-19 22:16:24","sex":-1,"customerid":32104,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"姗姗","mobileno":"18686860406"},{"createtime":"2014-11-19 22:16:59","sex":-1,"customerid":32105,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"13720367673","mobileno":"13720367673"},{"createtime":"2014-11-19 22:17:14","sex":-1,"customerid":32106,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"15527648891","mobileno":"15527648891"},{"createtime":"2014-11-19 22:17:42","sex":-1,"customerid":32107,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"你好","mobileno":""},{"createtime":"2014-11-19 22:18:05","sex":-1,"customerid":32113,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"你OK","mobileno":""},{"createtime":"2014-11-19 22:18:06","sex":-1,"customerid":32114,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"你OK","mobileno":""}]}
+
+
+2015-01-09 19:54:59
+[DEBUG]-[Thread: qtp909836224-58]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/loginEx; use:9ms
+ param:{"uid":"648"}
+ response:{"groupMsgModal":[{"id":11,"content":"并不是所有人都有与生俱来极佳的时尚品味和混搭能力，也并不是所有人都有时间每天在服饰搭配上用尽心思，其实选对一件套装就是最简单、最快速并且适合上班下班任何场合的穿衣技巧，今天，VOGUE就为你揭秘时尚达人们是如何将套装穿出个性，穿出气场！英国90后选秀歌手Diana Vickers在伦敦出席活动时身穿灰白格纹裙装，袖口和裙摆处的镂空细节格外别致。黑色半高领内搭，复古优雅；银色金属光泽手包，青春亮丽。大小不规则的灰白细格纹是非常适合上班族的套装面料，既简约低调，又精致干练。 ","createtime":"2014-11-11 04:38:35","usergroupID":966438,"state":0,"type":1},{"id":12,"content":"正在通话中，并不是所有人都有与生俱来极佳的时尚品味和混搭能力，也并不是所有人都有时间每天在服饰搭配上用尽心思，其实选对一件套装就是最简单、最快速并且适合上班下班任何场合的穿衣技巧，今天，VOGUE就为你揭秘时尚达人们是如何将套装穿出个性，穿出气场！英国90后选秀歌手Diana Vickers在伦敦出席活动时身穿灰白格纹裙装，袖口和裙摆处的镂空细节格外别致。黑色半高领内搭，复古优雅；银色金属光泽手包，青春亮丽。大小不规则的灰白细格纹是非常适合上班族的套装面料，既简约低调，又精致干练。 ","createtime":"2014-11-11 04:38:35","usergroupID":966438,"state":0,"type":2},{"id":28,"content":"结婚vkdfgk","createtime":"2014-12-09 10:18:37","usergroupID":966438,"state":0,"type":3}],"groupProject":[{"createTime":"2014-11-11 02:15:52","scale":"20-50","mobileNO":"15520664023","street":"珞瑜路","state":0,"password":"e10adc3949ba59abbe56e057f20f883e","city":"武汉","industrySec":1,"id":20,"usergroupID":966438,"username":"12345678","area":"洪山","address":"慧谷时空","province":"湖北","industry":1,"projectName":"光谷新城"}],"msg":"success","tempUserGroup":[{"id":270735,"userinfoID":648,"usergroupID":966438,"isanswer":0,"state":0,"role":1}]}
+
+
+2015-01-09 19:55:42
+[DEBUG]-[Thread: qtp909836224-56]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/getAllCusLst; use:4ms
+ param:{"userid":"648","type":"1","customerIndex":"0","groupid":"966438"}
+ response:{"totle":1,"msg":"success","rows":[{"createtime":"2014-11-14 15:44:35","sex":0,"customerid":25821,"popularize":0,"sayhello":0,"url":"www.ekt.so/e/?p=29860","customername":"测试聊天","mobileno":"11111111111"}]}
+
+
+2015-01-09 19:55:52
+[DEBUG]-[Thread: qtp909836224-58]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/getAllCusLst; use:4ms
+ param:{"userid":"648","type":"1","customerIndex":"0","groupid":"966438"}
+ response:{"totle":1,"msg":"success","rows":[{"createtime":"2014-11-14 15:44:35","sex":0,"customerid":25821,"popularize":0,"sayhello":0,"url":"www.ekt.so/e/?p=29860","customername":"测试聊天","mobileno":"11111111111"}]}
+
+
+2015-01-09 19:56:08
+[DEBUG]-[Thread: qtp909836224-58]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/getAllCusLst; use:3ms
+ param:{"userid":"648","type":"1","customerIndex":"0","groupid":"966438"}
+ response:{"totle":1,"msg":"success","rows":[{"createtime":"2014-11-14 15:44:35","sex":0,"customerid":25821,"popularize":0,"sayhello":0,"url":"www.ekt.so/e/?p=29860","customername":"测试聊天","mobileno":"11111111111"}]}
+
+
+2015-01-09 19:56:20
+[DEBUG]-[Thread: qtp909836224-56]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/modifyuser; use:45ms
+ param:{"userid":"648","handphone":"18709564089","username":"18709564089","sex":"0","nickname":"卡卡","photo":"m41"}
+ response:{"msg":"success"}
+
+
+2015-01-09 19:56:28
+[DEBUG]-[Thread: qtp909836224-59]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/login; use:10ms
+ param:{"password":"12345678","username":"18709564089"}
+ response:{"port":"6379","zipurl":"http://chat.9onlylove.com/mgr/website/20/web.zip","pwd":"123456","userGroup":[{"filecrc":null,"createtime":"2014-11-11 02:15:52","id":966438,"taskstate":0,"state":0,"mark":"1","groupname":"爱尚网","cityname":"武汉","uuid":"a131012b-2f41-49de-b903-4f78ddccc2fb","photo":null}],"userInfo":{"handphone":"18709564089","sex":0,"recode":"0000","nickname":"卡卡","islimit":0,"password":"25d55ad283aa400af464c76d713c07ad","photo":"m41","filecrc":null,"id":648,"createtime":"2014-11-11 04:06:59","balance":0,"password$TCC":"12345678","username":"18709564089","isanswer":null,"level":0,"sitestate":0,"logintime":"2015-01-09 19:54:59","address":null,"email":null,"token":"e30aa8d2-e299-44a4-9835-93c93d2585a6","thisIndex":0,"preIndex":0,"username$TCC":"卡卡","loginstate":2},"redisIP":"115.29.227.147","msg":"success","zipcrc32":null}
+
+
+2015-01-09 19:56:28
+[DEBUG]-[Thread: qtp909836224-60]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/loginEx; use:10ms
+ param:{"uid":"648"}
+ response:{"groupMsgModal":[{"id":11,"content":"并不是所有人都有与生俱来极佳的时尚品味和混搭能力，也并不是所有人都有时间每天在服饰搭配上用尽心思，其实选对一件套装就是最简单、最快速并且适合上班下班任何场合的穿衣技巧，今天，VOGUE就为你揭秘时尚达人们是如何将套装穿出个性，穿出气场！英国90后选秀歌手Diana Vickers在伦敦出席活动时身穿灰白格纹裙装，袖口和裙摆处的镂空细节格外别致。黑色半高领内搭，复古优雅；银色金属光泽手包，青春亮丽。大小不规则的灰白细格纹是非常适合上班族的套装面料，既简约低调，又精致干练。 ","createtime":"2014-11-11 04:38:35","usergroupID":966438,"state":0,"type":1},{"id":12,"content":"正在通话中，并不是所有人都有与生俱来极佳的时尚品味和混搭能力，也并不是所有人都有时间每天在服饰搭配上用尽心思，其实选对一件套装就是最简单、最快速并且适合上班下班任何场合的穿衣技巧，今天，VOGUE就为你揭秘时尚达人们是如何将套装穿出个性，穿出气场！英国90后选秀歌手Diana Vickers在伦敦出席活动时身穿灰白格纹裙装，袖口和裙摆处的镂空细节格外别致。黑色半高领内搭，复古优雅；银色金属光泽手包，青春亮丽。大小不规则的灰白细格纹是非常适合上班族的套装面料，既简约低调，又精致干练。 ","createtime":"2014-11-11 04:38:35","usergroupID":966438,"state":0,"type":2},{"id":28,"content":"结婚vkdfgk","createtime":"2014-12-09 10:18:37","usergroupID":966438,"state":0,"type":3}],"groupProject":[{"createTime":"2014-11-11 02:15:52","scale":"20-50","mobileNO":"15520664023","street":"珞瑜路","state":0,"password":"e10adc3949ba59abbe56e057f20f883e","city":"武汉","industrySec":1,"id":20,"usergroupID":966438,"username":"12345678","area":"洪山","address":"慧谷时空","province":"湖北","industry":1,"projectName":"光谷新城"}],"msg":"success","tempUserGroup":[{"id":270735,"userinfoID":648,"usergroupID":966438,"isanswer":0,"state":0,"role":1}]}
+
+
+2015-01-09 19:56:28
+[DEBUG]-[Thread: qtp909836224-59]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/getAllCusLst; use:28ms
+ param:{"userid":"648","type":"0","customerIndex":"0","groupid":"966438"}
+ response:{"totle":16,"msg":"success","rows":[{"createtime":"2014-11-14 02:54:46","sex":-1,"customerid":25842,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳芳","mobileno":"13125123722"},{"createtime":"2014-11-18 09:43:09","sex":-1,"customerid":29594,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:09","sex":-1,"customerid":29595,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:13","sex":-1,"customerid":29596,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:15","sex":-1,"customerid":29597,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:16","sex":-1,"customerid":29598,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:27","sex":-1,"customerid":29599,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:27","sex":-1,"customerid":29600,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-19 21:50:02","sex":-1,"customerid":32031,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":"13125123722"},{"createtime":"2014-11-19 22:15:41","sex":-1,"customerid":32103,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":"13125123722"},{"createtime":"2014-11-19 22:16:24","sex":-1,"customerid":32104,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"姗姗","mobileno":"18686860406"},{"createtime":"2014-11-19 22:16:59","sex":-1,"customerid":32105,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"13720367673","mobileno":"13720367673"},{"createtime":"2014-11-19 22:17:14","sex":-1,"customerid":32106,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"15527648891","mobileno":"15527648891"},{"createtime":"2014-11-19 22:17:42","sex":-1,"customerid":32107,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"你好","mobileno":""},{"createtime":"2014-11-19 22:18:05","sex":-1,"customerid":32113,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"你OK","mobileno":""},{"createtime":"2014-11-19 22:18:06","sex":-1,"customerid":32114,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"你OK","mobileno":""}]}
+
+
+2015-01-09 20:04:26
+[DEBUG]-[Thread: qtp909836224-66]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/login; use:11ms
+ param:{"password":"12345678","username":"18709564089"}
+ response:{"port":"6379","zipurl":"http://chat.9onlylove.com/mgr/website/20/web.zip","pwd":"123456","userGroup":[{"filecrc":null,"createtime":"2014-11-11 02:15:52","id":966438,"taskstate":0,"state":0,"mark":"1","groupname":"爱尚网","cityname":"武汉","uuid":"a131012b-2f41-49de-b903-4f78ddccc2fb","photo":null}],"userInfo":{"handphone":"18709564089","sex":0,"recode":"0000","nickname":"卡卡","islimit":0,"password":"25d55ad283aa400af464c76d713c07ad","photo":"m41","filecrc":null,"id":648,"createtime":"2014-11-11 04:06:59","balance":0,"password$TCC":"12345678","username":"18709564089","isanswer":null,"level":0,"sitestate":0,"logintime":"2015-01-09 19:56:28","address":null,"email":null,"token":"ae5dfcb4-baf9-4a54-a1de-b4bb82a65e53","thisIndex":0,"preIndex":0,"username$TCC":"卡卡","loginstate":2},"redisIP":"115.29.227.147","msg":"success","zipcrc32":null}
+
+
+2015-01-09 20:04:26
+[DEBUG]-[Thread: qtp909836224-66]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/loginEx; use:9ms
+ param:{"uid":"648"}
+ response:{"groupMsgModal":[{"id":11,"content":"并不是所有人都有与生俱来极佳的时尚品味和混搭能力，也并不是所有人都有时间每天在服饰搭配上用尽心思，其实选对一件套装就是最简单、最快速并且适合上班下班任何场合的穿衣技巧，今天，VOGUE就为你揭秘时尚达人们是如何将套装穿出个性，穿出气场！英国90后选秀歌手Diana Vickers在伦敦出席活动时身穿灰白格纹裙装，袖口和裙摆处的镂空细节格外别致。黑色半高领内搭，复古优雅；银色金属光泽手包，青春亮丽。大小不规则的灰白细格纹是非常适合上班族的套装面料，既简约低调，又精致干练。 ","createtime":"2014-11-11 04:38:35","usergroupID":966438,"state":0,"type":1},{"id":12,"content":"正在通话中，并不是所有人都有与生俱来极佳的时尚品味和混搭能力，也并不是所有人都有时间每天在服饰搭配上用尽心思，其实选对一件套装就是最简单、最快速并且适合上班下班任何场合的穿衣技巧，今天，VOGUE就为你揭秘时尚达人们是如何将套装穿出个性，穿出气场！英国90后选秀歌手Diana Vickers在伦敦出席活动时身穿灰白格纹裙装，袖口和裙摆处的镂空细节格外别致。黑色半高领内搭，复古优雅；银色金属光泽手包，青春亮丽。大小不规则的灰白细格纹是非常适合上班族的套装面料，既简约低调，又精致干练。 ","createtime":"2014-11-11 04:38:35","usergroupID":966438,"state":0,"type":2},{"id":28,"content":"结婚vkdfgk","createtime":"2014-12-09 10:18:37","usergroupID":966438,"state":0,"type":3}],"groupProject":[{"createTime":"2014-11-11 02:15:52","scale":"20-50","mobileNO":"15520664023","street":"珞瑜路","state":0,"password":"e10adc3949ba59abbe56e057f20f883e","city":"武汉","industrySec":1,"id":20,"usergroupID":966438,"username":"12345678","area":"洪山","address":"慧谷时空","province":"湖北","industry":1,"projectName":"光谷新城"}],"msg":"success","tempUserGroup":[{"id":270735,"userinfoID":648,"usergroupID":966438,"isanswer":0,"state":0,"role":1}]}
+
+
+2015-01-09 20:04:26
+[DEBUG]-[Thread: qtp909836224-67]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/getAllCusLst; use:20ms
+ param:{"userid":"648","type":"0","customerIndex":"0","groupid":"966438"}
+ response:{"totle":16,"msg":"success","rows":[{"createtime":"2014-11-14 02:54:46","sex":-1,"customerid":25842,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳芳","mobileno":"13125123722"},{"createtime":"2014-11-18 09:43:09","sex":-1,"customerid":29594,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:09","sex":-1,"customerid":29595,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:13","sex":-1,"customerid":29596,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:15","sex":-1,"customerid":29597,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:16","sex":-1,"customerid":29598,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:27","sex":-1,"customerid":29599,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-18 09:43:27","sex":-1,"customerid":29600,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":""},{"createtime":"2014-11-19 21:50:02","sex":-1,"customerid":32031,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":"13125123722"},{"createtime":"2014-11-19 22:15:41","sex":-1,"customerid":32103,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"芳","mobileno":"13125123722"},{"createtime":"2014-11-19 22:16:24","sex":-1,"customerid":32104,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"姗姗","mobileno":"18686860406"},{"createtime":"2014-11-19 22:16:59","sex":-1,"customerid":32105,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"13720367673","mobileno":"13720367673"},{"createtime":"2014-11-19 22:17:14","sex":-1,"customerid":32106,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"15527648891","mobileno":"15527648891"},{"createtime":"2014-11-19 22:17:42","sex":-1,"customerid":32107,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"你好","mobileno":""},{"createtime":"2014-11-19 22:18:05","sex":-1,"customerid":32113,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"你OK","mobileno":""},{"createtime":"2014-11-19 22:18:06","sex":-1,"customerid":32114,"popularize":0,"sayhello":0,"url":"www.ekt.so/","customername":"你OK","mobileno":""}]}
+
+
+2015-01-09 20:05:40
+[DEBUG]-[Thread: qtp909836224-67]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/getAllCusLst; use:3ms
+ param:{"userid":"648","type":"1","customerIndex":"0","groupid":"966438"}
+ response:{"totle":1,"msg":"success","rows":[{"createtime":"2014-11-14 15:44:35","sex":0,"customerid":25821,"popularize":0,"sayhello":0,"url":"www.ekt.so/e/?p=29860","customername":"测试聊天","mobileno":"11111111111"}]}
+
+
+2015-01-09 20:05:52
+[DEBUG]-[Thread: qtp909836224-68]-[com.ycc.core.jfinal.common.JsonLogRender.render()]: key:/appServer/getAllCusLst; use:4ms
+ param:{"userid":"648","type":"1","customerIndex":"0","groupid":"966438"}
+ response:{"totle":1,"msg":"success","rows":[{"createtime":"2014-11-14 15:44:35","sex":0,"customerid":25821,"popularize":0,"sayhello":0,"url":"www.ekt.so/e/?p=29860","customername":"测试聊天","mobileno":"11111111111"}]}
+
