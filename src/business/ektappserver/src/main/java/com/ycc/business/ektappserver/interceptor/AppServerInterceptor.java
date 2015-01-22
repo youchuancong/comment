@@ -1,6 +1,7 @@
 package com.ycc.business.ektappserver.interceptor;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.ServletInputStream;
@@ -14,6 +15,7 @@ import com.jfinal.log.Logger;
 import com.ycc.core.jfinal.common.CommonInterceptor;
 import com.ycc.core.util.def.CommonDef;
 import com.ycc.core.util.json.JsonUtil;
+import com.ycc.core.util.validator.StringUtil;
 
 /**
  * appServer拦截器
@@ -27,11 +29,20 @@ public class AppServerInterceptor implements Interceptor {
 	private void initParam(ActionInvocation ai) {
 		try {
 			HttpServletRequest request = ai.getController().getRequest();
-			ServletInputStream ins = request.getInputStream();
-			String str = IOUtils.toString(ins,CommonDef.CHARSET);
-			Map map = JsonUtil.getMapFromJsonString(str);
+			Map map = new HashMap();
+			String type=request.getContentType();
+			if(StringUtil.isNotEmpty(type)&&type.startsWith("multipart/form-data")){//文件上传类型的请求
+				map=request.getParameterMap();
+				CommonInterceptor.REQUEST_STR.set(JsonUtil.getJsonStringFromMap(map));
+			}else{
+				ServletInputStream ins = request.getInputStream();
+				String str = IOUtils.toString(ins,CommonDef.CHARSET);
+				if(StringUtil.isNotEmpty(str)){
+					 map = JsonUtil.getMapFromJsonString(str);
+				}
+				CommonInterceptor.REQUEST_STR.set(str);
+			}
 			CommonInterceptor.PARAM.set(map);
-			CommonInterceptor.REQUEST_STR.set(str);
 			//request.setAttribute(AppServerDef.AGENT_PARAM, str);
 		} catch (IOException e) {
 			log.error("initParam error", e);

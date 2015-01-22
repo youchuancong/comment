@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Date;
 import java.util.Properties;
 
 import com.ycc.core.util.validator.StringUtil;
@@ -67,5 +68,9 @@ public class SystemConfigUtil {
 		default:
 			return null;
 		}
+	}
+	public static void main(String[] args) {
+		Date b = new Date();
+		System.out.println(b.getTime());
 	}
 }

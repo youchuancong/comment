@@ -37,6 +37,8 @@ public class MyJfinalConfig extends JFinalConfig {
 		// 加载少量必要配置，随后可用getProperty(...)获取值
 		loadPropertyFile(new File(SystemConfigUtil.getConFileName()));
 		me.setDevMode(getPropertyToBoolean("devMode", false));
+		me.setUploadedFileSaveDirectory(SystemConfigUtil.getWebHome()+File.separator+"upload");
+		me.setMaxPostSize(10*1024*1024);
 	}
 
 	/**

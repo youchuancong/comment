@@ -1,6 +1,13 @@
 package com.ycc.business.ektappserver.control;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.RandomAccessFile;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import com.jfinal.aop.Before;
@@ -8,13 +15,16 @@ import com.jfinal.core.Controller;
 import com.jfinal.ext.route.ControllerBind;
 import com.jfinal.log.Logger;
 import com.jfinal.plugin.spring.Inject;
+import com.jfinal.upload.UploadFile;
 import com.ycc.business.ektappserver.bean.ErrorResponse;
+import com.ycc.business.ektappserver.bean.FileInfo;
 import com.ycc.business.ektappserver.bean.SuccessResponse;
 import com.ycc.business.ektappserver.def.ErrorCode;
 import com.ycc.business.ektappserver.interceptor.MainInterceptors;
 import com.ycc.business.ektappserver.service.IUserService;
 import com.ycc.core.jfinal.common.CommonInterceptor;
 import com.ycc.core.jfinal.common.JsonLogRender;
+import com.ycc.core.util.config.SystemConfigUtil;
 import com.ycc.core.util.validator.MapUtil;
 @ControllerBind(controllerKey="/appServer")
 @Before(MainInterceptors.class)
@@ -97,5 +107,73 @@ public class AppServerController extends Controller {
 		Map map = (Map)CommonInterceptor.PARAM.get();
 		String res = userService.modifyuser(map);
 		render(new JsonLogRender(res));
+	}
+	
+	public void uploadlog(){
+		UploadFile log = getFile();
+		render(new JsonLogRender(SuccessResponse.getSuccessStr()));
+	}
+	public void filelist(){
+		List<FileInfo> list = new LinkedList<FileInfo>();
+		File uploaddir = new File(SystemConfigUtil.getWebHome()+File.separator+"upload");
+		if(uploaddir.isDirectory()){
+			File[] fs = uploaddir.listFiles();
+			for(File f:fs){
+				list.add(new FileInfo(f.getName().split("\\.")[0],f.length(),new Date(f.lastModified())));
+			}
+		}
+		Collections.sort(list, new Comparator<FileInfo>(){
+
+			public int compare(FileInfo o1, FileInfo o2) {
+				return (int)(o2.getTime().getTime()-o1.getTime().getTime());
+			}
+			
+		} );
+		setAttr("files", list);
+		renderFreeMarker("UploadFileList.html");
+	}
+	public void downloadfile(){
+		String name = getPara(0);
+		renderFile(new File(SystemConfigUtil.getWebHome()+File.separator+"upload"+File.separator+name+".log"));
+	}
+	
+	/**
+	 * 查看服务器日志（只查看最新的10000个字符内容）
+	 */
+	public void serverlog(){
+		String logfile=getLogFile();
+		int size=100000;
+		try {
+			RandomAccessFile rf = new RandomAccessFile(logfile, "r");
+			if(rf.length()>size){
+				rf.seek(rf.length()-size);
+			}
+			byte[] bytes = new byte[size];
+			int rsize = rf.read(bytes, 0, size);
+			String context = new String(bytes,0,rsize,"utf-8");
+			setAttr("logcontext", context);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		renderFreeMarker("serverlog.html");
+	}
+	public void downloadlog(){
+		String logfile=getLogFile();
+		renderFile(new File(logfile));
+	}
+	/**
+	 * 优先取startup.log日志文件，该文件不存在时则取output.log
+	 * @return
+	 */
+	private String getLogFile(){
+		String logpath=SystemConfigUtil.getWebHome()+File.separator+"log";
+		String logfile="startup.log";
+		File f = new File(logpath+File.separator+logfile);
+		if(!f.exists()){
+			logfile="output.log";
+		}
+		return logpath+File.separator+logfile;
 	}
 }
