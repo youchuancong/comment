@@ -755,3 +755,13 @@ The failing instruction (print stack trace for 1 more):
 	at freemarker.template.Template.process(Template.java:277)
 	at com.jfinal.render.FreeMarkerRender.render(FreeMarkerRender.java:128)
 	... 27 more
+
+2015-01-28 19:04:06
+[ERROR]-[Thread: qtp491889057-51]-[com.alibaba.druid.filter.stat.StatFilter.internalAfterStatementExecute()]: slow sql 3542 millis. 
+select type,f_popularize_id from customerdec where f_customer_id=?
+[237171]
+
+2015-01-28 19:04:06
+[ERROR]-[Thread: qtp491889057-54]-[com.alibaba.druid.filter.stat.StatFilter.internalAfterStatementExecute()]: slow sql 3542 millis. 
+select type,f_popularize_id from customerdec where f_customer_id=?
+[224819]

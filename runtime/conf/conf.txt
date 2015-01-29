@@ -10,6 +10,7 @@ dbpool=druid
 
 
 WEB_URL=http://chat.9onlylove.com/mgr
+SHORT_URL=www.ekt.so/
 
 # 微信服务器回调所用的 token
 token=youycc

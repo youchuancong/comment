@@ -16,6 +16,8 @@ import com.ycc.business.ektappserver.service.IUserService;
 import com.ycc.core.jfinal.db.DbFactory;
 import com.ycc.core.jfinal.db.DbUtil;
 import com.ycc.core.myspringioc.annotation.Service;
+import com.ycc.core.util.TimeUtil;
+import com.ycc.core.util.config.SystemConfigUtil;
 import com.ycc.core.util.json.JsonUtil;
 import com.ycc.core.util.pool.ThreadPoolUtil;
 import com.ycc.core.util.validator.CollectionUtil;
@@ -202,7 +204,8 @@ public class UserService implements IUserService {
 				cusid, userid);
 	}
 
-	public void saveCusInfo(Map param) {
+	public String saveCusInfo(Map param) {
+		Map res = SuccessResponse.getSuccessMap();
 		int uid = MapUtil.getInt(param, "userid");
 		int gid = MapUtil.getInt(param, "groupid");
 		int type = MapUtil.getInt(param, "type");
@@ -236,12 +239,29 @@ public class UserService implements IUserService {
 			/*DbFactory.getDb(AppServerDef.MAIN_WRITE).update(sql, cname,mobileno,sex,new Date(),new Date(),gid,uid);
 			Number bi =  DbFactory.getDb(AppServerDef.MAIN_WRITE).queryNumber("select last_insert_id()");
 			cid=bi.intValue();*/
+			res.put("url", getUrl(cid,uid,gid,mobileno));
 		}
 		String sql="insert into customerinfo(age,sex,intention,housetype,area,remark,type,f_customer_id,customername,mobileno) values(?,?,?,?,?,?,?,?,?,?)";
 		DbFactory.getDb(AppServerDef.MAIN_WRITE).update(sql, age,sex,intention,housetype,area,remark,type,cid,cname,mobileno);
-	
+		return JsonUtil.getJsonStringFromMap(res);
 	}
-
+	private String getUrl(long cid,int uid,int gid,String mn){
+		Record ur = new Record();
+		ur.set("server_url", "");
+		ur.set("f_usergroup_id", gid);
+		ur.set("f_userinfo_id", uid);
+		ur.set("customermobile", mn);
+		ur.set("cus_creatime", TimeUtil.getCurrentTimeStr());
+		ur.set("url_no", "");
+		ur.set("f_customer_id", cid);
+		ur.set("createtime", new Date());
+		DbFactory.getDb(AppServerDef.MAIN_WRITE).save("url_rewrite", ur);
+		long urlid=ur.getLong("id");
+		String url = "e/?p="+urlid;
+		String sql = "update customerdistribution set url=? where id=?";
+		DbFactory.getDb(AppServerDef.MAIN_WRITE).update(sql, url,cid);
+		return SystemConfigUtil.get("SHORT_URL")+url;
+	}
 	public String modifyuser(Map param) {
 		int uid=MapUtil.getInt(param, "userid");
 		String uname=MapUtil.getString(param, "username", null);
@@ -320,6 +340,12 @@ public class UserService implements IUserService {
 
 	public Userinfo findUserInfoById(int uid) {
 		return DbUtil.findById(AppServerDef.MAIN_READ, uid, Userinfo.class);
+	}
+
+	public Record findCusById(int cid) {
+		Record res = DbFactory.getDb(AppServerDef.MAIN_READ).findFirst(
+				"select * from customerinfo where f_customer_id=?", cid);
+		return res;
 	}
 
 }

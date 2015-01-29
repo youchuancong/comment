@@ -1,7 +1,6 @@
 package com.ycc.business.ektappserver.control;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.RandomAccessFile;
 import java.util.Collections;
 import java.util.Comparator;
@@ -14,6 +13,7 @@ import com.jfinal.aop.Before;
 import com.jfinal.core.Controller;
 import com.jfinal.ext.route.ControllerBind;
 import com.jfinal.log.Logger;
+import com.jfinal.plugin.activerecord.Record;
 import com.jfinal.plugin.spring.Inject;
 import com.jfinal.upload.UploadFile;
 import com.ycc.business.ektappserver.bean.ErrorResponse;
@@ -25,6 +25,7 @@ import com.ycc.business.ektappserver.service.IUserService;
 import com.ycc.core.jfinal.common.CommonInterceptor;
 import com.ycc.core.jfinal.common.JsonLogRender;
 import com.ycc.core.util.config.SystemConfigUtil;
+import com.ycc.core.util.json.JsonUtil;
 import com.ycc.core.util.validator.MapUtil;
 @ControllerBind(controllerKey="/appServer")
 @Before(MainInterceptors.class)
@@ -99,8 +100,7 @@ public class AppServerController extends Controller {
 			renderJson(ErrorResponse.getErrMsg(ErrorCode.PARAM_ERROR_1));
 			return;
 		}
-		userService.saveCusInfo(map);
-		render(new JsonLogRender(SuccessResponse.getSuccessStr()));
+		render(new JsonLogRender(userService.saveCusInfo(map)));
 	}
 	
 	public void modifyuser(){
@@ -175,5 +175,15 @@ public class AppServerController extends Controller {
 			logfile="output.log";
 		}
 		return logpath+File.separator+logfile;
+	}
+	
+	public void getCusInfo(){
+		Map map = (Map)CommonInterceptor.PARAM.get();
+		int cid = MapUtil.getInt(map, "cid");
+		Record cus = userService.findCusById(cid);
+		Map cols = cus.getColumns();
+		cols.put("msg", "success");
+		String res = JsonUtil.getJsonStringFromMap(cols);
+		render(new JsonLogRender(res));
 	}
 }

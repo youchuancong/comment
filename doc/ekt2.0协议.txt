@@ -77,7 +77,7 @@
     51,                                    //上面一行BODY内容的长度
     RAW_BODY_END, 
 =================
-6、标记推广链
+8、标记推广链
 =================
 	"URL=http://192.168.0.160:8084/appServer/popularizeFlag",
     "RecContentType=application/json",    //指定相应头的Content-Type，这里是JSON
@@ -86,5 +86,16 @@
     RAW_BODY_START,                      //请求BODY开始的标识符
     "{\"token\":\"token\",\"customerid\":\"1\",\"userinfoid\":\"1\",\"popularizeid\":\"3\"}",  //BODY的内容
     70,                                    //上面一行BODY内容的长度
+    RAW_BODY_END, 
+=================
+9、获取客户信息
+=================
+	"URL=http://192.168.0.160:8084/appServer/getCusInfo",
+    "RecContentType=application/json",    //指定相应头的Content-Type，这里是JSON
+    "EncType=application/json",               //指定请求头的Content-Type，这里也是JSON
+    "Mode=HTML",
+    RAW_BODY_START,                      //请求BODY开始的标识符
+    "{\"token\":\"token\",\"cid\":\"1\"}",  //BODY的内容
+    27,                                    //上面一行BODY内容的长度
     RAW_BODY_END, 
 =================
